@@ -1,0 +1,24 @@
+﻿Build started 9/22/2016 3:36:50 PM.
+     1>Project "C:\Users\17a9s01\Desktop\GhostsNGoblins\GhostNGoblins\GhostNGoblins.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\SFML-2.4.0\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D SFML_STATIC /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\GhostNGoblins.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt App.cpp
+         App.cpp
+     1>c:\users\17a9s01\desktop\ghostsngoblins\ghostngoblins\app.cpp(62): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\17a9s01\Desktop\GhostsNGoblins\GhostNGoblins\Debug\GhostNGoblins.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\SFML-2.4.0\lib" "sfml-graphics-s-d.lib" "sfml-audio-s-d.lib" "sfml-window-s-d.lib" "sfml-system-s-d.lib" opengl32.lib freetype.lib winmm.lib gdi32.lib jpeg.lib openal32.lib flac.lib vorbisenc.lib vorbisfile.lib vorbis.lib ogg.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\17a9s01\Desktop\GhostsNGoblins\GhostNGoblins\Debug\GhostNGoblins.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\17a9s01\Desktop\GhostsNGoblins\GhostNGoblins\Debug\GhostNGoblins.lib" /MACHINE:X86 Debug\App.obj
+         Debug\Box.obj
+         Debug\Droppable.obj
+         Debug\GameLogic.obj
+         Debug\GameState.obj
+         Debug\GhostNGoblins.obj
+         Debug\Ladder.obj
+         Debug\Monster.obj
+         Debug\Player.obj
+         Debug\PowerUp.obj
+         Debug\stdafx.obj
+         GhostNGoblins.vcxproj -> C:\Users\17a9s01\Desktop\GhostsNGoblins\GhostNGoblins\Debug\GhostNGoblins.exe
+     1>Done Building Project "C:\Users\17a9s01\Desktop\GhostsNGoblins\GhostNGoblins\GhostNGoblins.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.15
