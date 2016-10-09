@@ -389,16 +389,147 @@
 	<string>
 	<vector>
 
-1475990466 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\game.h
+1476021747 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\game.h
 	<SFML/Graphics.hpp>
+	"StateManager.h"
+	"SplashScreenState.h"
 
-1475990464 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\game.cpp
+1476034259 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\game.cpp
 	"Game.h"
 
-1475993996 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\basestate.cpp
+1476034981 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\basestate.cpp
 	"BaseState.h"
 
-1475993923 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\basestate.h
+1476034974 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\basestate.h
 	<string>
 	<SFML/Graphics.hpp>
+	"FileManager.h"
+
+1476035022 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\statemanager.h
+	<vector>
+	<SFML/Graphics.hpp>
+	"BaseState.h"
+
+1476039931 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\filemanager.h
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+
+1475820849 c:\sfml-2.4.0\include\sfml\audio.hpp
+	<SFML/System.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/Audio/Listener.hpp>
+	<SFML/Audio/Music.hpp>
+	<SFML/Audio/OutputSoundFile.hpp>
+	<SFML/Audio/Sound.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundBufferRecorder.hpp>
+	<SFML/Audio/SoundFileFactory.hpp>
+	<SFML/Audio/SoundFileReader.hpp>
+	<SFML/Audio/SoundFileWriter.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/Audio/SoundStream.hpp>
+
+1475820849 c:\sfml-2.4.0\include\sfml\audio\inputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+
+1475820849 c:\sfml-2.4.0\include\sfml\audio\export.hpp
+	<SFML/Config.hpp>
+
+1475820849 c:\sfml-2.4.0\include\sfml\audio\listener.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
+
+1475820849 c:\sfml-2.4.0\include\sfml\audio\music.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundStream.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1475820850 c:\sfml-2.4.0\include\sfml\audio\soundstream.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Mutex.hpp>
+	<cstdlib>
+
+1475820850 c:\sfml-2.4.0\include\sfml\audio\soundsource.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Vector3.hpp>
+
+1475820849 c:\sfml-2.4.0\include\sfml\audio\alresource.hpp
+	<SFML/Audio/Export.hpp>
+
+1475820849 c:\sfml-2.4.0\include\sfml\audio\outputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<string>
+
+1475820849 c:\sfml-2.4.0\include\sfml\audio\sound.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
+
+1475820849 c:\sfml-2.4.0\include\sfml\audio\soundbuffer.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+	<set>
+
+1475820849 c:\sfml-2.4.0\include\sfml\audio\soundbufferrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<vector>
+
+1475820850 c:\sfml-2.4.0\include\sfml\audio\soundrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<vector>
+	<string>
+
+1475820849 c:\sfml-2.4.0\include\sfml\audio\soundfilefactory.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+	<vector>
+	<SFML/Audio/SoundFileFactory.inl>
+
+1475820849 c:\sfml-2.4.0\include\sfml\audio\soundfilefactory.inl
+
+1475820849 c:\sfml-2.4.0\include\sfml\audio\soundfilereader.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+
+1475820850 c:\sfml-2.4.0\include\sfml\audio\soundfilewriter.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+
+1476035022 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\statemanager.cpp
+	"StateManager.h"
+
+1476034974 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\splashscreenstate.h
+	<BaseState.h>
+
+1476039019 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\filemanager.cpp
+	"FileManager.h"
+
+1476039150 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\splashscreenstate.cpp
+	"SplashScreenState.h"
 

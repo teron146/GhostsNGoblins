@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "StateManager.h"
+#include "SplashScreenState.h"
 
 //This class runs the game loop.
 class Game
