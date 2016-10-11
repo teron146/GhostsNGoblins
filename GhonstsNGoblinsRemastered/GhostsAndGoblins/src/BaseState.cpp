@@ -17,6 +17,11 @@ void BaseState::draw(sf::RenderWindow &window)
 {
 }
 
+void BaseState::unload()
+{
+    files.unload();
+}
+
 BaseState::~BaseState()
 {
     //dtor

@@ -16,8 +16,8 @@ class StateManager
         void draw(sf::RenderWindow &);
         //Allows you to add a BaseState onto the top of the stack of BaseStates
         void push_State(BaseState *);
-        void pop_State();
         //Allows you to pop a BaseState off the top of the stack of BaseStates
+        void pop_State();
 
         //This vector of BaseStates will allow the programmer to switch between states while maintaining other states.
         //For example if I was in the GameState and paused in order to go to the menu then I could simply push_back() a MenuState then when I unpause
@@ -27,7 +27,8 @@ class StateManager
         ~StateManager();
 
     private:
-
+        //Called on by pop_State in order to delete all the files loaded by the fileManager
+        void unload();
 };
 
         //This vector of BaseStates will allow the programmer to switch between states while maintaining other states.

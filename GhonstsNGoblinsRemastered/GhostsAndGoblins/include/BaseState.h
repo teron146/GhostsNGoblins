@@ -19,6 +19,8 @@ class BaseState
         virtual void processEvents(sf::RenderWindow &, sf::Event);
         //Draws all objects to the window
         virtual void draw(sf::RenderWindow &);
+        //Deletes everything that the fileManager has loaded
+        void unload();
 
 
 
@@ -47,5 +49,6 @@ class BaseState
 
 
 };
+
 
 #endif // BASESTATE_H

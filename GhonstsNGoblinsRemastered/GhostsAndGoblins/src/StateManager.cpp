@@ -28,7 +28,14 @@ void StateManager::push_State( BaseState *newState )
 
 void StateManager::pop_State()
 {
+   //this->unload();
+   states.back()->unload();
     states.pop_back();
+}
+
+void StateManager::unload()
+{
+    states.back()->unload();
 }
 
 

@@ -40,6 +40,11 @@ void Game::loop()
         }
         window.clear();
         stateManager.draw(window);
+        std::cout << "All files have been grabbed now unloading." << std:: endl;
+        int x;
+        std::cin >> x;
+        stateManager.pop_State();
+        stateManager.push_State(new SplashScreenState);
         window.display();
     }
 }
