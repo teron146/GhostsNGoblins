@@ -125,40 +125,30 @@ sf::Music* FileManager::getMusic(int index)
 //Pops back every vector until its size is 0
 void FileManager::unload()
 {
-    std::cout <<"\n\n-=SYS SIZe=-\t\t-=" << musicVector.size() << "=-" << "-=" << spriteVector.size() << "=--=" << soundVector.size() << "=-\n\n\n" ;
     //Sets i to the size of the vector then decrements by 1 until 0
     for (int i = musicVector.size() - 1; i >= 0; i--)
-    {
         delete musicVector.at(i);
-        //Erases the data the sf::music pointer is pointing to
-        //musicVector.erase(musicVector.begin() + i);
-        //Then pops back the index
-        //musicVector.pop_back();
-        //std::cout << "musicVector size is: " << musicVector.size() << std::endl;
-    }
-    std::cout << "-=" << musicVector.size() << "=-" << std::endl;
+    musicVector.resize(0);
+
+    for (int i = textureVector.size() - 1; i >= 0; i--)
+        delete textureVector.at(i);
+    textureVector.resize(0);
 
     for (int i = spriteVector.size() - 1; i >= 0; i--)
     {
-        spriteVector.pop_back();
         for(int e = spriteVector.back()->size() - 1; e >= 0; e--)
-        {
-            spriteVector.back()->erase(spriteVector.back()->begin() + i);
-            spriteVector.back()->pop_back();
-            std::cout << "spriteVector size is: " << spriteVector.size() << std::endl;
-        }
+            delete spriteVector.at(i)->at(e);
+        delete spriteVector.at(i);
     }
+    spriteVector.resize(0);
 
     for (int i = soundVector.size() - 1; i >= 0; i--)
     {
-        soundVector.pop_back();
         for(int e = soundVector.back()->size() - 1; e >= 0; e--)
-        {
-            soundVector.back()->erase(soundVector.back()->begin() + i);
-            soundVector.back()->pop_back();
-            std::cout << "soundVector size is: " << soundVector.size() << std::endl;
-        }
+            delete soundVector.at(i)->at(e);
+        delete soundVector.at(i);
     }
+    soundVector.resize(0);
 }
 
 

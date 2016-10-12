@@ -18,6 +18,8 @@ class SplashScreenState : public BaseState
         void draw(sf::RenderWindow &);
 
     private:
+        sf::Clock c1;
+
 };
 
 #endif // SPLASHSCREENSTATE_H

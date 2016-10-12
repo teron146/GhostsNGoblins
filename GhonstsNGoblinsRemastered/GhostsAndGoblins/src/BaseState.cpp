@@ -22,6 +22,19 @@ void BaseState::unload()
     files.unload();
 }
 
+bool BaseState::switchTrue()
+{
+    if(stateSwitch)
+        return true;
+    else
+        return false;
+}
+
+std::string BaseState::nextState()
+{
+    return nextStateS;
+}
+
 BaseState::~BaseState()
 {
     //dtor

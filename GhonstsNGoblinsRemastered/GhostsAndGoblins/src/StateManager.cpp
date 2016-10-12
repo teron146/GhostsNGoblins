@@ -14,6 +14,18 @@ StateManager::~StateManager()
 void StateManager::processEvents(sf::RenderWindow &window, sf::Event event)
 {
     states.back()->processEvents( window, event );
+    if(states.back()->switchTrue())
+    {
+        if(states.back()->nextState() == "SplashScreenState")
+        {
+            this->pop_State();
+            this->push_State(new SplashScreenState);
+        }
+        else if(states.back()->nextState() == "MenuState")
+            true;
+        else if(states.back()->nextState() == "GameState")
+            true;
+    }
 }
 
 void StateManager::draw(sf::RenderWindow &window)
@@ -30,7 +42,7 @@ void StateManager::pop_State()
 {
    //this->unload();
    states.back()->unload();
-    states.pop_back();
+   delete states.back();
 }
 
 void StateManager::unload()
