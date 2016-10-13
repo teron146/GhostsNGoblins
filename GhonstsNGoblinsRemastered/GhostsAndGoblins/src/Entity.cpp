@@ -39,7 +39,7 @@ sf::Sprite& Entity::draw()
     if(clock.getElapsedTime().asSeconds() > eventTime.asSeconds())
     {
     int timeDifference = clock.getElapsedTime().asSeconds() - eventTime.asSeconds();
-        sf::Color alpha(255,255,255,255 - (timeDifference * 20));
+        sf::Color alpha(255,255,255,255 + (timeDifference * 20));
         sprites.back()->setColor(alpha);
     }
 

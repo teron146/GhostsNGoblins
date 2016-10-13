@@ -23,7 +23,7 @@ SplashScreenState::~SplashScreenState()
 void SplashScreenState::processEvents(sf::RenderWindow &window, sf::Event event)
 {
     inputManager.update(event);
-    if(inputManager.keyPressed(sf::Keyboard::Space) || c1.getElapsedTime().asSeconds() >= sf::seconds(10).asSeconds())
+    if(inputManager.keyPressed(sf::Keyboard::Space))
     {
         stateSwitch = true;
         nextStateS = "SplashScreenState";
