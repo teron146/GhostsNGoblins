@@ -7,7 +7,6 @@
 #include "Entity.h"
 #include "InputManager.h"
 #include "backGround.h"
-#include "Player.h"
 
 
 class BaseState

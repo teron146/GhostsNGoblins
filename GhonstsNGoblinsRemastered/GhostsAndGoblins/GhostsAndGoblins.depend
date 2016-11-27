@@ -394,20 +394,19 @@
 	"StateManager.h"
 	"SplashScreenState.h"
 
-1480194890 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\game.cpp
+1480227200 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\game.cpp
 	"Game.h"
 
 1480194777 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\basestate.cpp
 	"BaseState.h"
 
-1480193934 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\basestate.h
+1480223887 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\basestate.h
 	<string>
 	<SFML/Graphics.hpp>
 	"FileManager.h"
 	"Entity.h"
 	"InputManager.h"
 	"backGround.h"
-	"Player.h"
 
 1480194777 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\statemanager.h
 	<vector>
@@ -592,12 +591,14 @@
 1480192157 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\inputmanager.cpp
 	"InputManager.h"
 
-1476548656 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\entity.h
+1480233987 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\entity.h
+	<iostream>
 	<vector>
+	<string>
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
-1476548656 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\entity.cpp
+1480236812 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\entity.cpp
 	"Entity.h"
 
 1480194732 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\menustate.cpp
@@ -617,12 +618,20 @@
 1476560088 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\player.h
 	<Entity.h>
 
-1480205721 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\gamestate.cpp
+1480237201 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\gamestate.cpp
 	"GameState.h"
 
-1480194777 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\gamestate.h
+1480228555 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\gamestate.h
 	<BaseState.h>
-
-1480195389 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\player.cpp
 	"Player.h"
+	"tile.h"
+
+1480234694 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\player.cpp
+	"Player.h"
+
+1480224509 source:c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\tile.cpp
+	"tile.h"
+
+1480224479 c:\users\adams\desktop\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\tile.h
+	<Entity.h>
 

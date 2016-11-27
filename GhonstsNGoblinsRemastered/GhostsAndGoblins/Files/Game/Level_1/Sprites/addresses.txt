@@ -1,1 +1,2 @@
 ./Files/Game/Level_1/Sprites/God.jpg
+./Files/Game/Level_1/Sprites/meme.jpg

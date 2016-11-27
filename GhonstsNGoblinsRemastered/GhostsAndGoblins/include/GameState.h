@@ -2,6 +2,8 @@
 #define GAMESTATE_H
 
 #include <BaseState.h>
+#include "Player.h"
+#include "tile.h"
 
 
 class GameState : public BaseState
@@ -14,7 +16,7 @@ class GameState : public BaseState
         void process(sf::RenderWindow &);
         void draw(sf::RenderWindow &);
     private:
-        bool collide(Entity&);
+        void collide(Entity&);
         sf::Vector2<float> cameraPosition;
         void handlePlayer(Entity&);
         void gravity(Entity&);

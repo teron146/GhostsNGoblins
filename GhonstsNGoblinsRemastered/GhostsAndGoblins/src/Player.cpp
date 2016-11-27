@@ -5,8 +5,11 @@ Player::Player(std::vector<sf::Sprite*> &spriteSet)
     ID.push_back("playerMovement");
     ID.push_back("playerAction");
     ID.push_back("gravity");
+    ID.push_back("moves");
     sprites = spriteSet;
     crouching = false;
+    kill = false;
+    currentSprite = sprites.size() - 1;
 }
 
 Player::~Player()
@@ -16,8 +19,7 @@ Player::~Player()
 
 sf::Sprite& Player::draw()
 {
-    sprites.back()->setPosition(position_m);
-    return *sprites.back();
+    return *sprites.at(currentSprite);
 }
 
 sf::Sound& Player::sound()
