@@ -6,6 +6,8 @@
 #include "FileManager.h"
 #include "Entity.h"
 #include "InputManager.h"
+#include "backGround.h"
+#include "Player.h"
 
 
 class BaseState
@@ -19,6 +21,8 @@ class BaseState
         //Processes keyboard events, handles Entities, DynamicEnvironment,
         //StaticEnvironment, and collisionDetection for every state
         virtual void processEvents(sf::RenderWindow &, sf::Event);
+        //Processes game logic not dependent on events
+        virtual void process(sf::RenderWindow &);
         //Draws all objects to the window
         virtual void draw(sf::RenderWindow &);
         //Deletes everything that the fileManager has loaded

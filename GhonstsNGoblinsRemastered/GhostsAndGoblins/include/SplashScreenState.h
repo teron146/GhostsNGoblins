@@ -14,6 +14,7 @@ class SplashScreenState : public BaseState
         void pause();
         //Checks if any key is pressed. If a key is pressed go to menu state
         void processEvents(sf::RenderWindow &, sf::Event);
+        void process(sf::RenderWindow &);
         //Draws the background for the splash screen
         void draw(sf::RenderWindow &);
 

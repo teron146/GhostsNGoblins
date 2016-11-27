@@ -22,10 +22,21 @@ void StateManager::processEvents(sf::RenderWindow &window, sf::Event event)
             this->push_State(new SplashScreenState);
         }
         else if(states.back()->nextState() == "MenuState")
-            true;
+        {
+            this->pop_State();
+            this->push_State(new MenuState);
+        }
         else if(states.back()->nextState() == "GameState")
-            true;
+        {
+            this->pop_State();
+            this->push_State(new GameState("Level_1"));
+        }
     }
+}
+
+void StateManager::process(sf::RenderWindow &window)
+{
+    states.back()->process(window);
 }
 
 void StateManager::draw(sf::RenderWindow &window)

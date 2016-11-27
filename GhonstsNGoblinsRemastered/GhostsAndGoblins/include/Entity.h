@@ -9,11 +9,11 @@ class Entity
 {
     public:
         Entity();
-        Entity(sf::Time, float, float, std::vector<sf::Sprite*>&);
         ~Entity();
         sf::Vector2<float> get_Position();
         bool isKill();
         void moveEntity(sf::Vector2<float>);
+        void moveEntity(float, float);
         sf::Vector2<float> get_Velocity();
         //This returns what sprite to draw based on current conditions
         virtual sf::Sprite& draw();
@@ -21,6 +21,7 @@ class Entity
         virtual sf::Sound& sound();
         //This checks if a sound should be requested from the entity
         bool requestNoise();
+        std::vector< std::string > getID();
 
 
     protected:
@@ -34,6 +35,8 @@ class Entity
         std::vector< sf::Sprite* > sprites;
         std::vector< sf::Sound* > sounds;
         sf::Vector2<float> spriteScale;
+        //This will let the state know how to handle the given entity
+        std::vector< std::string > ID;
 
 };
 

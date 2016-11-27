@@ -6,6 +6,8 @@
 #include <SFML/Graphics.hpp>
 #include "BaseState.h"
 #include "SplashScreenState.h"
+#include "MenuState.h"
+#include "GameState.h"
 
 class StateManager
 {
@@ -14,6 +16,8 @@ class StateManager
 
         //Processes events for the state currently at the top of the stack.
         void processEvents(sf::RenderWindow &, sf::Event);
+        //Processes game logic not dependent on events
+        void process(sf::RenderWindow &);
         //calls on the state at the top of the stack to draw
         void draw(sf::RenderWindow &);
         //Allows you to add a BaseState onto the top of the stack of BaseStates

@@ -13,6 +13,10 @@ void BaseState::processEvents(sf::RenderWindow &window, sf::Event event)
 {
 }
 
+void BaseState::process(sf::RenderWindow &window)
+{
+}
+
 void BaseState::draw(sf::RenderWindow &window)
 {
 }

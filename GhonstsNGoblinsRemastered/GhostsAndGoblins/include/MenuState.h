@@ -4,13 +4,17 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include "BaseState.h"
 
-class MenuState
+class MenuState : public BaseState
 {
     public:
         MenuState();
-        void processEvents(sf::RenderWindow &, sf::Event);
         ~MenuState();
+        void pause();
+        void processEvents(sf::RenderWindow &, sf::Event);
+        void process(sf::RenderWindow &);
+        void draw(sf::RenderWindow &);
 
     protected:
 

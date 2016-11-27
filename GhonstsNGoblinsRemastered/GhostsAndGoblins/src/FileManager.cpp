@@ -35,7 +35,7 @@ void FileManager::load(std::string folder, std::string level = " ")
     ifs.close();
 
     //SplashScreen does not have any sounds
-    if(folder != "SplashScreen")
+    if(!true)
     {
         //Opens the addresses text file for sounds. This lists the addresses for every sound
         location = baseLocation + "/Sounds/addresses.txt";

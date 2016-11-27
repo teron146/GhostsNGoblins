@@ -17,7 +17,7 @@ Game::Game(int FPS = 60, int screenHeight = 800, int screenWidth = 800)
     screenDimensions.x = screenHeight;
     screenDimensions.y = screenWidth;
     window.create(sf::VideoMode(screenDimensions.x, screenDimensions.y), "Ghosts N' Goblins");
-    window.setFramerateLimit(FPS_m);
+    //window.setFramerateLimit(FPS_m);
 }
 
 Game::~Game()
@@ -38,6 +38,7 @@ void Game::loop()
                 window.close();
             stateManager.processEvents(window, event);
         }
+        stateManager.process(window);
         window.clear();
         stateManager.draw(window);
         window.display();

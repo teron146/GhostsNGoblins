@@ -4,7 +4,7 @@ SplashScreenState::SplashScreenState()
 {
     BaseState::folder = "SplashScreen";
     BaseState::files.load(folder, " ");
-    entityVector.push_back(new Entity(sf::seconds(3), 8, 8, *files.getSprites(0)));
+    entityVector.push_back(new backGround(8, 8, *files.getSprites(0)));
     BaseState::files.getMusic(0)->play();
     BaseState::files.getMusic(0)->setLoop(true);
     stateSwitch = false;
@@ -26,8 +26,13 @@ void SplashScreenState::processEvents(sf::RenderWindow &window, sf::Event event)
     if(inputManager.keyPressed(sf::Keyboard::Space))
     {
         stateSwitch = true;
-        nextStateS = "SplashScreenState";
+        nextStateS = "MenuState";
     }
+}
+
+void SplashScreenState::process(sf::RenderWindow &window)
+{
+
 }
 
 void SplashScreenState::draw(sf::RenderWindow &window)
