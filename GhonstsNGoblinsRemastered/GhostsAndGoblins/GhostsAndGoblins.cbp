@@ -55,6 +55,7 @@
 			<Add option="-DSFML_STATIC" />
 			<Add directory="../../../../../../SFML-2.4.0/include" />
 		</Compiler>
+		<Unit filename="include/Animation.h" />
 		<Unit filename="include/BaseState.h" />
 		<Unit filename="include/Entity.h" />
 		<Unit filename="include/FileManager.h" />
@@ -66,7 +67,9 @@
 		<Unit filename="include/SplashScreenState.h" />
 		<Unit filename="include/StateManager.h" />
 		<Unit filename="include/backGround.h" />
+		<Unit filename="include/tile.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Animation.cpp" />
 		<Unit filename="src/BaseState.cpp" />
 		<Unit filename="src/Entity.cpp" />
 		<Unit filename="src/FileManager.cpp" />
@@ -78,6 +81,7 @@
 		<Unit filename="src/SplashScreenState.cpp" />
 		<Unit filename="src/StateManager.cpp" />
 		<Unit filename="src/backGround.cpp" />
+		<Unit filename="src/tile.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

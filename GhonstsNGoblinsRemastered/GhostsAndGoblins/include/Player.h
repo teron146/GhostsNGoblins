@@ -7,10 +7,12 @@
 class Player : public Entity
 {
     public:
-        Player(std::vector<sf::Sprite*>&);
+        Player(float posX, float posY);
         ~Player();
         void crouch();
-        sf::Sprite& draw();
+        void run(bool right = true);
+        void idle();
+        sf::RectangleShape& draw();
         sf::Sound& sound();
     private:
         bool crouching;

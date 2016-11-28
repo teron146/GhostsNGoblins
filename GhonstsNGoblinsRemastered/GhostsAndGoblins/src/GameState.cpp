@@ -3,9 +3,8 @@
 GameState::GameState(std::string level)
 {
     files.load("Game", level);
-    entityVector.push_back(new Player(*files.getSprites(0)));
-    entityVector.push_back(new tile(*files.getSprites(1)));
-    entityVector.back()->moveEntity(500,500);
+    entityVector.push_back(new Player(100, 100));
+    entityVector.push_back(new tile(500.0f, 100.0f, 500.0f, 500.0f));
     stateSwitch = false;
     files.getMusic(0)->play();
     files.getMusic(0)->setLoop(true);
@@ -45,16 +44,16 @@ void GameState::processEvents(sf::RenderWindow &window, sf::Event event)
         //Loops through entities ID's
         for(int r = 0; r < entityVector.at(i)->getID().size(); r++ )
         {
+            if( entityVector.at(i)->getID().at(r) == "playerEvents")
+            {
+                PlayerEvents(*entityVector.at(i), event);
+            }
         }
     }
 }
 
 void GameState::process(sf::RenderWindow &window)
 {
-    for(int i = 0; i < entityVector.size(); ++i)
-    {
-        entityVector.at(i)->moveEntity(0,0);
-    }
     //Loops through all entities
     for(int i = 0; i < entityVector.size(); ++i)
     {
@@ -64,7 +63,7 @@ void GameState::process(sf::RenderWindow &window)
             //Handles Entities with playerMovement ID
             if( entityVector.at(i)->getID().at(r) == "playerMovement")
             {
-                handlePlayer(*entityVector.at(i));
+                PlayerMovement(*entityVector.at(i));
             }
             if( entityVector.at(i)->getID().at(r) == "gravity")
             {
@@ -80,22 +79,18 @@ void GameState::gravity(Entity& entity)
     entity.moveEntity(0, 1);
 }
 
-void GameState::handlePlayer(Entity& player)
+void GameState::PlayerMovement(entity& player)
 {
-    float speed = 10;
     if(inputManager.keyDown(sf::Keyboard::D))
     {
-        player.moveEntity(speed, 0);
+        player.run();
     }
     else if(inputManager.keyDown(sf::Keyboard::A))
     {
-        player.moveEntity(-speed, 0);
+        player.run(false);
     }
-
-    if(inputManager.keyDown(sf::Keyboard::W))
-    {
-        player.moveEntity(0, -speed);
-    }
+    else if(!inputManager.keyDown(sf::Keyboard::W))
+        player.idle();
 
     if(inputManager.keyDown(sf::Keyboard::S))
     {
@@ -109,6 +104,13 @@ void GameState::handlePlayer(Entity& player)
     cameraPosition = player.get_Position();
 }
 
+void GameState::PlayerEvents(Entity& player, sf::Event& event)
+{
+    if(inputManager.keyReleased(sf::Keyboard::W))
+    {
+        player.jump();
+    }
+}
 void GameState::draw(sf::RenderWindow & window)
 {
     //Loops through all entities
@@ -162,7 +164,6 @@ void GameState::collide(Entity& entity)
             std::cout << "Box 2" << std::endl << "\tBottom: " << box2_bottom
             << "\n\tTop: " << box2.top << "\n\tLeft: " << box2.left << "\n\tRight: " << box2_right << "\n";
 
-            //std::cin >> meme;
             //box1 right colliding with box2 left
             if (OldBox1_right <= box2.left
                 && box1_right > box2.left)

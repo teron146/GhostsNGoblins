@@ -1,15 +1,40 @@
 #include "Player.h"
 
-Player::Player(std::vector<sf::Sprite*> &spriteSet)
+Player::Player(float posX, float posY)
 {
+    rect.setPosition(posX, posY);
+
     ID.push_back("playerMovement");
     ID.push_back("playerAction");
     ID.push_back("gravity");
     ID.push_back("moves");
-    sprites = spriteSet;
+    ID.push_back("playerEvents");
+
+    //File grabbing
+    getTexture("./Textures/Arthur1.png");
+
+
+    //Animation
+
+    //0
+    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 1 );
+    animations.back()->ID = "no_armor_idle";
+    //1
+    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 2 );
+    animations.back()->ID = "no_armor_run_right";
+    //2
+    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 2, false );
+    animations.back()->ID = "no_armor_run_left";
+    //3
+    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 3);
+    animations.back()->ID = "no_armor_jump";
+    rect.setScale(30,50);
+    deltaTime = 0.0f;
+    currentAnimation = 1;
+
+    //Other
     crouching = false;
     kill = false;
-    currentSprite = sprites.size() - 1;
 }
 
 Player::~Player()
@@ -17,9 +42,12 @@ Player::~Player()
     //dtor
 }
 
-sf::Sprite& Player::draw()
+sf::RectangleShape& Player::draw()
 {
-    return *sprites.at(currentSprite);
+    deltaTime = clock.restart().asSeconds();
+    animations.at(currentAnimation)->update(deltaTime);
+    rect.setTexture(animations.at(currentAnimation));
+    return *rect;
 }
 
 sf::Sound& Player::sound()
@@ -33,6 +61,30 @@ void Player::crouch()
         crouching = false;
     else
         crouching = true;
+}
+
+void Player::run(bool right)
+{
+    if(right)
+    {
+        currentAnimation = 1;
+        moveEntity(10, 0)
+    }
+    else
+    {
+        currentAnimation = 2;
+        moveEntity(-10, 0)
+    }
+}
+
+void Player::idle()
+{
+    currentAnimation = 0;
+}
+
+void Player::jump()
+{
+    currentAnimation = 3;
 }
 
 

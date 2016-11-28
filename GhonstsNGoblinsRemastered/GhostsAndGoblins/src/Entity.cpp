@@ -27,7 +27,7 @@ void Entity::moveEntity(sf::Vector2<float> velocity)
 
     position_m += velocity;
     velocity_m = velocity;
-    sprites.at(currentSprite)->setPosition(position_m);
+    rect.setPosition(position_m);
 }
 
 void Entity::moveEntity(float x, float y)
@@ -40,18 +40,18 @@ void Entity::moveEntity(float x, float y)
     position_m.y += y;
     velocity_m.x = x;
     velocity_m.y = y;
-    sprites.at(currentSprite)->setPosition(position_m);
+    rect.setPosition(position_m);
 }
 
 sf::FloatRect Entity::getBoundingBox(std::string i)
 {
     if(i == "current")
-        return sprites.at(currentSprite)->getGlobalBounds();
+        return rect.getGlobalBounds();
     else
     {
-        sprites.at(currentSprite)->setPosition(oldPosition_m);
-        sf::FloatRect temp = sprites.at(currentSprite)->getGlobalBounds();
-        sprites.at(currentSprite)->setPosition(position_m);
+        rect.setPosition(oldPosition_m);
+        sf::FloatRect temp = rect.getGlobalBounds();
+        rect.setPosition(position_m);
         return temp;
     }
 }
@@ -61,9 +61,9 @@ sf::Vector2<float> Entity::get_Velocity()
     return velocity_m;
 }
 
-sf::Sprite& Entity::draw()
+sf::RectangleShape& Entity::draw()
 {
-    return *sprites.back();
+    return rect;
 }
 
 sf::Sound& Entity::sound()
@@ -80,6 +80,27 @@ std::vector<std::string> Entity::getID()
 {
     return ID;
 }
+
+sf::Texture Entity::getTexture(std::string address)
+{
+    texture.push_back( new sf::Texture );
+    texture.back()->loadFromFile(address);
+}
+
+Animation& Entity::getAnimation(std::string ID)
+{
+    for(int i = 0; i < animations.size(); ++i)
+    {
+        if(animations.at(i)->ID == ID)
+            return *animations.at(i);
+    }
+}
+
+
+
+
+
+
 
 
 
