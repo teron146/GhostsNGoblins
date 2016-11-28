@@ -18,8 +18,8 @@ class GameState : public BaseState
     private:
         void collide(Entity&);
         sf::Vector2<float> cameraPosition;
-        void PlayerMovement(Player&);
-        void PlayerEvents(Player&, sf::Event &);
+        void PlayerMovement(Entity&);
+        void PlayerEvents(Entity&, sf::Event &);
         void gravity(Entity&);
 };
 

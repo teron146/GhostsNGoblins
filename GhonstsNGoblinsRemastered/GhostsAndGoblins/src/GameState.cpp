@@ -79,6 +79,7 @@ void GameState::gravity(Entity& entity)
     entity.moveEntity(0, 1);
 }
 
+//Moves the player based on keyboard input
 void GameState::PlayerMovement(entity& player)
 {
     if(inputManager.keyDown(sf::Keyboard::D))

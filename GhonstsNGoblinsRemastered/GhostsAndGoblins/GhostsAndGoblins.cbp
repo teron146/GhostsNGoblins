@@ -14,7 +14,7 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add option="-DSFML_STATIC" />
-					<Add directory="../../../../../../SFML-2.4.0/include" />
+					<Add directory="../../../../../../../SFML-2.4.0/include" />
 					<Add directory="include" />
 				</Compiler>
 				<Linker>

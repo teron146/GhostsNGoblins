@@ -98,6 +98,26 @@ Animation& Entity::getAnimation(std::string ID)
 
 
 
+//Player specific functions
+void Entity::crouch()
+{
+
+}
+void Entity::run()
+{
+
+}
+void Entity::idle()
+{
+
+}
+void Entity::jump()
+{
+
+}
+
+
+
 
 
 

@@ -31,6 +31,13 @@ class Entity
         Animation& getAnimation(std::string);
 
 
+        //Player specific functions
+        virtual void crouch();
+        virtual void run();
+        virtual void idle();
+        virtual void jump();
+
+
     protected:
         bool kill;
         sf::Time eventTime;
