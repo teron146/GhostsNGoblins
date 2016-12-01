@@ -1,1 +1,0 @@
-./Files/SplashScreen/Sprites/God.jpg

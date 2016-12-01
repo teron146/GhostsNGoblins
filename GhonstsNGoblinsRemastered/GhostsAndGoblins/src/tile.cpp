@@ -1,9 +1,14 @@
 #include "tile.h"
 
-tile::tile(std::vector<sf::Sprite*> &spriteSet)
+tile::tile(float height, float width, float posX, float posY)
 {
+    rect.setScale(height, width);
+    moveEntity(posX,posY);
     ID.push_back("tile");
-    sprites = spriteSet;
+
+    getTexture("./Textures/Error.jpg");
+    rect.setTexture(texture.back());
+
     kill = false;
     currentSprite = sprites.size() - 1;
 }
@@ -13,8 +18,7 @@ tile::~tile()
     //dtor
 }
 
-sf::Sprite& tile::draw()
+sf::RectangleShape& tile::draw()
 {
-    sprites.at(currentSprite)->setPosition(position_m);
-    return *sprites.at(currentSprite);
+    return *rect;
 }

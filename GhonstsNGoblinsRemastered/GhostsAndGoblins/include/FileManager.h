@@ -25,6 +25,12 @@ class FileManager
         std::vector< sf::Sound* >* getSounds(int);
         //returns a music pointer from the desired index
         sf::Music* getMusic(int);
+
+        //Beginning revamp of file grabbing
+        //Entities themselves will now request needed files
+        sf::Texture* getTexture(std::string entity);
+
+
     private:
         //Handles loading sprites for load
         //Requires the exact address of the file from the text file called addresses in every sprite folder

@@ -1,9 +1,9 @@
 #include "backGround.h"
 
-backGround::backGround(float scaleX, float scaleY, std::vector<sf::Sprite*> &spriteSet)
+backGround::backGround(float scaleX, float scaleY)
 {
-    sprites = spriteSet;
-    sprites.back()->scale(scaleX, scaleY);
+    getTexture("./Textures/error.jpg");
+    rect.scale(scaleX, scaleY);
     kill = false;
 }
 
@@ -12,9 +12,9 @@ backGround::~backGround()
     //dtor
 }
 
-sf::Sprite& backGround::draw()
+sf::RectangleShape& backGround::draw()
 {
-    return *sprites.back();
+    return rect;
 }
 
 sf::Sound& backGround::sound()

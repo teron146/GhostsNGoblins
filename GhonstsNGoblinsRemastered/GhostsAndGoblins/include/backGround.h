@@ -7,9 +7,9 @@
 class backGround : public Entity
 {
     public:
-        backGround(float, float, std::vector<sf::Sprite*>&);
+        backGround(float, float);
         ~backGround();
-        sf::Sprite& draw();
+        sf::RectangleShape& draw();
         sf::Sound& sound();
     private:
 };
