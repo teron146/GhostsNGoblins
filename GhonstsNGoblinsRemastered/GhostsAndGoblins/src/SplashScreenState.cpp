@@ -2,9 +2,8 @@
 
 SplashScreenState::SplashScreenState()
 {
-    BaseState::folder = "SplashScreen";
-    BaseState::files.load(folder, " ");
-    entityVector.push_back(new backGround(8, 8, *files.getSprites(0)));
+    entityVector.push_back(new backGround(0,0));
+    //Music is currently not working
     BaseState::files.getMusic(0)->play();
     BaseState::files.getMusic(0)->setLoop(true);
     stateSwitch = false;

@@ -4,6 +4,7 @@ backGround::backGround(float scaleX, float scaleY)
 {
     getTexture("./Textures/error.jpg");
     rect.scale(scaleX, scaleY);
+    rect.setTexture(texture.at(0));
     kill = false;
 }
 

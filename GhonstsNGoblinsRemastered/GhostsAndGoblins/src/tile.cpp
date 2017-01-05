@@ -10,7 +10,6 @@ tile::tile(float height, float width, float posX, float posY)
     rect.setTexture(texture.back());
 
     kill = false;
-    currentSprite = sprites.size() - 1;
 }
 
 tile::~tile()
@@ -20,5 +19,5 @@ tile::~tile()
 
 sf::RectangleShape& tile::draw()
 {
-    return *rect;
+    return rect;
 }

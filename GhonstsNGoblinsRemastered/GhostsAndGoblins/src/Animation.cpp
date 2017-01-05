@@ -3,6 +3,7 @@
 Animation::Animation(sf::Texture* texture, sf::Vector2u imageCount,
                      float switchTime, int row, bool faceRight)
 {
+    this->texture = texture;
     this->imageCount = imageCount;
     this->switchTime = switchTime;
     this->row = row;

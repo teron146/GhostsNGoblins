@@ -17,16 +17,16 @@ Player::Player(float posX, float posY)
     //Animation
 
     //0
-    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 1 );
+    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 1 ) );
     animations.back()->ID = "no_armor_idle";
     //1
-    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 2 );
+    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 2 ) );
     animations.back()->ID = "no_armor_run_right";
     //2
-    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 2, false );
+    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 2, false ) );
     animations.back()->ID = "no_armor_run_left";
     //3
-    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 3);
+    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 3) );
     animations.back()->ID = "no_armor_jump";
     rect.setScale(30,50);
     deltaTime = 0.0f;
@@ -46,8 +46,8 @@ sf::RectangleShape& Player::draw()
 {
     deltaTime = clock.restart().asSeconds();
     animations.at(currentAnimation)->update(deltaTime);
-    rect.setTexture(animations.at(currentAnimation));
-    return *rect;
+    rect.setTextureRect(animations.at(currentAnimation)->uvRect);
+    return rect;
 }
 
 sf::Sound& Player::sound()
@@ -68,23 +68,27 @@ void Player::run(bool right)
     if(right)
     {
         currentAnimation = 1;
-        moveEntity(10, 0)
+        moveEntity(10, 0);
+        rect.setTexture(animations.at(currentAnimation)->texture);
     }
     else
     {
         currentAnimation = 2;
-        moveEntity(-10, 0)
+        moveEntity(-10, 0);
+        rect.setTexture(animations.at(currentAnimation)->texture);
     }
 }
 
 void Player::idle()
 {
     currentAnimation = 0;
+    rect.setTexture(animations.at(currentAnimation)->texture);
 }
 
 void Player::jump()
 {
     currentAnimation = 3;
+    rect.setTexture(animations.at(currentAnimation)->texture);
 }
 
 

@@ -103,7 +103,7 @@ void Entity::crouch()
 {
 
 }
-void Entity::run()
+void Entity::run(bool b)
 {
 
 }

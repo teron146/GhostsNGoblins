@@ -12,6 +12,7 @@ class Animation
         ~Animation();
         void update(float deltaTime);
         sf::IntRect uvRect;
+        sf::Texture* texture;
         std::string ID;
     private:
         sf::Vector2u imageCount;

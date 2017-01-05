@@ -33,7 +33,7 @@ class Entity
 
         //Player specific functions
         virtual void crouch();
-        virtual void run();
+        virtual void run(bool);
         virtual void idle();
         virtual void jump();
 

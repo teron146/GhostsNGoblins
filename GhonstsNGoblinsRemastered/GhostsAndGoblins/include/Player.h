@@ -11,6 +11,7 @@ class Player : public Entity
         ~Player();
         void crouch();
         void run(bool right = true);
+        void jump();
         void idle();
         sf::RectangleShape& draw();
         sf::Sound& sound();

@@ -80,11 +80,11 @@ void GameState::gravity(Entity& entity)
 }
 
 //Moves the player based on keyboard input
-void GameState::PlayerMovement(entity& player)
+void GameState::PlayerMovement(Entity& player)
 {
     if(inputManager.keyDown(sf::Keyboard::D))
     {
-        player.run();
+        player.run(true);
     }
     else if(inputManager.keyDown(sf::Keyboard::A))
     {
