@@ -2,6 +2,10 @@
 
 Player::Player(float posX, float posY)
 {
+    sf::Vector2f temp;
+    temp.x = 100;
+    temp.y = 120;
+    rect.setSize(temp);
     rect.setPosition(posX, posY);
 
     ID.push_back("playerMovement");
@@ -17,18 +21,17 @@ Player::Player(float posX, float posY)
     //Animation
 
     //0
-    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 1 ) );
-    animations.back()->ID = "no_armor_idle";
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.6f, 0 ) );
+    animations.at(animations.size() - 1)->ID = "no_armor_idle";
     //1
-    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 2 ) );
-    animations.back()->ID = "no_armor_run_right";
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 1 ) );
+    animations.at(animations.size() - 1)->ID = "no_armor_run_right";
     //2
-    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 2, false ) );
-    animations.back()->ID = "no_armor_run_left";
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 1, false ) );
+    animations.at(animations.size() - 1)->ID = "no_armor_run_left";
     //3
-    animations.push_back( new Animation( texture.at(1), sf::Vector2u(2,6), 0.3f, 3) );
-    animations.back()->ID = "no_armor_jump";
-    rect.setScale(30,50);
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 5) );
+    animations.at(animations.size() - 1)->ID = "no_armor_jump";
     deltaTime = 0.0f;
     currentAnimation = 1;
 

@@ -2,12 +2,15 @@
 
 tile::tile(float height, float width, float posX, float posY)
 {
-    rect.setScale(height, width);
+    sf::Vector2f temp;
+    temp.x = height;
+    temp.y = width;
+    rect.setSize(temp);
     moveEntity(posX,posY);
     ID.push_back("tile");
 
     getTexture("./Textures/Error.jpg");
-    rect.setTexture(texture.back());
+    rect.setTexture(&texture.back());
 
     kill = false;
 }

@@ -3,21 +3,11 @@
 GameState::GameState(std::string level)
 {
     files.load("Game", level);
-    entityVector.push_back(new Player(100, 100));
-    entityVector.push_back(new tile(500.0f, 100.0f, 500.0f, 500.0f));
+    entityVector.push_back(new Player(100, 0));
+    entityVector.push_back(new tile(10000.0f, 100.0f, 100.0f, 500.0f));
     stateSwitch = false;
     files.getMusic(0)->play();
     files.getMusic(0)->setLoop(true);
-    for(int i = 0; i < entityVector.size(); i++)
-    {
-        for(int r = 0; r < entityVector.at(i)->getID().size(); r++ )
-        {
-            if( entityVector.at(i)->getID().at(r) == "player")
-            {
-               cameraPosition = entityVector.at(i)->get_Position();
-            }
-        }
-    }
 }
 
 GameState::~GameState()
@@ -64,6 +54,7 @@ void GameState::process(sf::RenderWindow &window)
             if( entityVector.at(i)->getID().at(r) == "playerMovement")
             {
                 PlayerMovement(*entityVector.at(i));
+
             }
             if( entityVector.at(i)->getID().at(r) == "gravity")
             {
@@ -101,8 +92,6 @@ void GameState::PlayerMovement(Entity& player)
     {
         //player.crouch();
     }
-
-    cameraPosition = player.get_Position();
 }
 
 void GameState::PlayerEvents(Entity& player, sf::Event& event)
@@ -114,21 +103,22 @@ void GameState::PlayerEvents(Entity& player, sf::Event& event)
 }
 void GameState::draw(sf::RenderWindow & window)
 {
+    window.setView(camera);
     //Loops through all entities
     for(int i = 0; i < entityVector.size(); i++)
     {
-        //Only draws things in camera range
-       // if(entityVector.at(i)->get_Position().x > cameraPosition.x
-        //   && entityVector.at(i)->get_Position().x < cameraPosition.x + window.getSize().x
-        //   && entityVector.at(i)->get_Position().y > cameraPosition.y
-        //   && entityVector.at(i)->get_Position().y < cameraPosition.y + window.getSize().y)
-        //{
-            window.draw(entityVector.at(i)->draw());
-       // }
+        for(int r = 0; r < entityVector.at(i)->getID().size(); r++ )
+        {
+            if( entityVector.at(i)->getID().at(r) == "playerMovement")
+            {
+                camera.setCenter(entityVector.at(i)->get_Position());
+
+            }
+        }
+        window.draw(entityVector.at(i)->draw());
     }
 }
 
-//Only Returns false atm for debugging program
 void GameState::collide(Entity& entity)
 {
     int meme;

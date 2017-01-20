@@ -2,10 +2,10 @@
 
 SplashScreenState::SplashScreenState()
 {
-    entityVector.push_back(new backGround(0,0));
+    entityVector.push_back(new backGround(800, 800, 0, 0));
     //Music is currently not working
-    BaseState::files.getMusic(0)->play();
-    BaseState::files.getMusic(0)->setLoop(true);
+    //BaseState::files.getMusic(0)->play();
+    //BaseState::files.getMusic(0)->setLoop(true);
     stateSwitch = false;
     c1.restart();
 

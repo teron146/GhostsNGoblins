@@ -2,7 +2,7 @@
 
 MenuState::MenuState()
 {
-    files.load("Menu", " ");
+    entityVector.push_back(new backGround(800,800,0,0));
     stateSwitch = false;
 
 }
@@ -33,5 +33,6 @@ void MenuState::process(sf::RenderWindow &window)
 
 void MenuState::draw(sf::RenderWindow &window)
 {
-
+    for(int i = 0; i < entityVector.size(); i++)
+        window.draw(entityVector.at(i)->draw());
 }

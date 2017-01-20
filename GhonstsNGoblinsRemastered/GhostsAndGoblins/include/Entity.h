@@ -52,7 +52,7 @@ class Entity
         int currentAnimation;
         float deltaTime;
         sf::Clock clock;
-        std::vector< sf::Texture* > texture;
+        std::vector< sf::Texture > texture;
         std::vector< Animation* > animations;
         std::vector< sf::Sound* > sounds;
         sf::Vector2<float> spriteScale;

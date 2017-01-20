@@ -83,8 +83,9 @@ std::vector<std::string> Entity::getID()
 
 sf::Texture Entity::getTexture(std::string address)
 {
-    texture.push_back( new sf::Texture );
-    texture.back()->loadFromFile(address);
+    sf::Texture temp;
+    texture.push_back( temp );
+    texture.back().loadFromFile(address);
 }
 
 Animation& Entity::getAnimation(std::string ID)

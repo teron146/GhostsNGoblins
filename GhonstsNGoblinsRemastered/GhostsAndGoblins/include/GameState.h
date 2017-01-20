@@ -17,10 +17,10 @@ class GameState : public BaseState
         void draw(sf::RenderWindow &);
     private:
         void collide(Entity&);
-        sf::Vector2<float> cameraPosition;
         void PlayerMovement(Entity&);
         void PlayerEvents(Entity&, sf::Event &);
         void gravity(Entity&);
+        sf::View camera;
 };
 
 #endif // GAMESTATE_H

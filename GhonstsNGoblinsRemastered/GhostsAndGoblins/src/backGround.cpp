@@ -1,10 +1,14 @@
 #include "backGround.h"
 
-backGround::backGround(float scaleX, float scaleY)
+backGround::backGround(float scaleX, float scaleY, float posX, float posY)
 {
+    sf::Vector2f temp;
+    temp.x = scaleX;
+    temp.y = scaleY;
     getTexture("./Textures/error.jpg");
-    rect.scale(scaleX, scaleY);
-    rect.setTexture(texture.at(0));
+    rect.setSize(temp);
+    rect.setPosition(posX, posY);
+    rect.setTexture(&texture.at(0));
     kill = false;
 }
 
