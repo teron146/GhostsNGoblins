@@ -112,7 +112,7 @@ void Entity::idle()
 {
 
 }
-void Entity::jump()
+void Entity::jump(bool b)
 {
 
 }

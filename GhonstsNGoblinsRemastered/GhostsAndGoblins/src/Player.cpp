@@ -3,6 +3,7 @@
 Player::Player(float posX, float posY)
 {
     sf::Vector2f temp;
+    jumper = 0;
     temp.x = 100;
     temp.y = 120;
     rect.setSize(temp);
@@ -88,10 +89,27 @@ void Player::idle()
     rect.setTexture(animations.at(currentAnimation)->texture);
 }
 
-void Player::jump()
+void Player::jump(bool start)
 {
-    currentAnimation = 3;
-    rect.setTexture(animations.at(currentAnimation)->texture);
+
+        if(start == true)
+        {
+            jumper = 0;
+            currentAnimation = 3;
+            rect.setTexture(animations.at(currentAnimation)->texture);
+        }
+        else if (jumper < 30)
+        {
+            jumper++;
+            moveEntity(0, -5);
+            currentAnimation = 3;
+            rect.setTexture(animations.at(currentAnimation)->texture);
+        }
+        else if (jumper == 30)
+        {
+            //This is almost definitely going to need to be changed
+            jumper = 31;
+        }
 }
 
 

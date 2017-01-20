@@ -35,7 +35,7 @@ class Entity
         virtual void crouch();
         virtual void run(bool);
         virtual void idle();
-        virtual void jump();
+        virtual void jump(bool);
 
 
     protected:

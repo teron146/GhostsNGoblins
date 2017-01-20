@@ -11,12 +11,13 @@ class Player : public Entity
         ~Player();
         void crouch();
         void run(bool right = true);
-        void jump();
+        void jump(bool = false);
         void idle();
         sf::RectangleShape& draw();
         sf::Sound& sound();
     private:
         bool crouching;
+        int jumper;
 };
 
 #endif // PLAYER_H

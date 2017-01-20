@@ -92,13 +92,14 @@ void GameState::PlayerMovement(Entity& player)
     {
         //player.crouch();
     }
+    player.jump(false);
 }
 
 void GameState::PlayerEvents(Entity& player, sf::Event& event)
 {
     if(inputManager.keyReleased(sf::Keyboard::W))
     {
-        player.jump();
+        player.jump(true);
     }
 }
 void GameState::draw(sf::RenderWindow & window)
