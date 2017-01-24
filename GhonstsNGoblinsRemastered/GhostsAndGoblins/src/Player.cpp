@@ -17,6 +17,7 @@ Player::Player(float posX, float posY)
 
     //File grabbing
     getTexture("./Textures/Arthur1.png");
+    getTexture("./Textures/Arthur2.png");
 
 
     //Animation
@@ -35,6 +36,9 @@ Player::Player(float posX, float posY)
     animations.at(animations.size() - 1)->ID = "no_armor_jump";
     deltaTime = 0.0f;
     currentAnimation = 1;
+    //4
+    animations.push_back( new Animation( &texture.at(1), sf::Vector2u(1,5), 0.1f, 2) );
+    animations.at(animations.size() - 1)->ID = "no_armor_crouch_right";
 
     //Other
     crouching = false;
@@ -61,25 +65,30 @@ sf::Sound& Player::sound()
 
 void Player::crouch()
 {
-    if(crouching)
-        crouching = false;
-    else
+    if(grounded == true)
+    {
         crouching = true;
+        currentAnimation = 4;
+        rect.setTexture(animations.at(currentAnimation)->texture);
+    }
 }
 
 void Player::run(bool right)
 {
-    if(right)
+    if(crouching == false)
     {
-        currentAnimation = 1;
-        moveEntity(10, 0);
-        rect.setTexture(animations.at(currentAnimation)->texture);
-    }
-    else
-    {
-        currentAnimation = 2;
-        moveEntity(-10, 0);
-        rect.setTexture(animations.at(currentAnimation)->texture);
+        if(right)
+        {
+            currentAnimation = 1;
+            moveEntity(10, 0);
+            rect.setTexture(animations.at(currentAnimation)->texture);
+        }
+        else
+        {
+            currentAnimation = 2;
+            moveEntity(-10, 0);
+            rect.setTexture(animations.at(currentAnimation)->texture);
+        }
     }
 }
 
@@ -91,25 +100,24 @@ void Player::idle()
 
 void Player::jump(bool start)
 {
-
-        if(start == true)
-        {
-            jumper = 0;
-            currentAnimation = 3;
-            rect.setTexture(animations.at(currentAnimation)->texture);
-        }
-        else if (jumper < 30)
-        {
-            jumper++;
-            moveEntity(0, -5);
-            currentAnimation = 3;
-            rect.setTexture(animations.at(currentAnimation)->texture);
-        }
-        else if (jumper == 30)
-        {
-            //This is almost definitely going to need to be changed
-            jumper = 31;
-        }
+    if(start == true)
+    {
+        jumper = 0;
+        currentAnimation = 3;
+        rect.setTexture(animations.at(currentAnimation)->texture);
+    }
+    else if (jumper < 30)
+    {
+        jumper++;
+        moveEntity(0, (-40 * pow(0.95, jumper)));
+        currentAnimation = 3;
+        rect.setTexture(animations.at(currentAnimation)->texture);
+    }
+    else if (jumper == 31)
+    {
+        //This is almost definitely going to need to be changed
+        jumper = 31;
+    }
 }
 
 

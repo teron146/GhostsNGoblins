@@ -4,7 +4,7 @@ GameState::GameState(std::string level)
 {
     files.load("Game", level);
     entityVector.push_back(new Player(100, 0));
-    entityVector.push_back(new tile(10000.0f, 100.0f, 100.0f, 500.0f));
+    entityVector.push_back(new tile(10000.0f, 100.0f, 100.0f, 1400.0f));
     stateSwitch = false;
     files.getMusic(0)->play();
     files.getMusic(0)->setLoop(true);
@@ -67,7 +67,7 @@ void GameState::process(sf::RenderWindow &window)
 }
 void GameState::gravity(Entity& entity)
 {
-    entity.moveEntity(0, 1);
+    entity.moveEntity(0, 15);
 }
 
 //Moves the player based on keyboard input
@@ -84,26 +84,24 @@ void GameState::PlayerMovement(Entity& player)
     else if(!inputManager.keyDown(sf::Keyboard::W))
         player.idle();
 
+    player.crouching = false;
     if(inputManager.keyDown(sf::Keyboard::S))
     {
-        //player.crouch();
-    }
-    else if(inputManager.keyReleased(sf::Keyboard::S))
-    {
-        //player.crouch();
+        player.crouch();
     }
     player.jump(false);
 }
 
 void GameState::PlayerEvents(Entity& player, sf::Event& event)
 {
-    if(inputManager.keyReleased(sf::Keyboard::W))
+    if(inputManager.keyReleased(sf::Keyboard::W) && player.grounded == true)
     {
         player.jump(true);
     }
 }
 void GameState::draw(sf::RenderWindow & window)
 {
+
     window.setView(camera);
     //Loops through all entities
     for(int i = 0; i < entityVector.size(); i++)
@@ -123,6 +121,7 @@ void GameState::draw(sf::RenderWindow & window)
 void GameState::collide(Entity& entity)
 {
     int meme;
+    entity.grounded = false;
     sf::FloatRect box1 = entity.getBoundingBox();
     std::cout << "Old: ";
     std::cout << "( " << entity.get_Position("old").x << ", " << entity.get_Position("old").y << ")" << std::endl;
@@ -170,7 +169,10 @@ void GameState::collide(Entity& entity)
             //box1 bottom colliding with box2 top
             else if (OldBox1_bottom <= box2.top
                      && box1_bottom > box2.top)
+            {
                 entity.moveEntity(0, -top_collision);
+                entity.grounded = true;
+            }
 
             //box1 top colliding with box2 bottom
             else if (oldBox1.top <= box2_bottom

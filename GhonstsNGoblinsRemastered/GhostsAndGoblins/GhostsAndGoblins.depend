@@ -785,7 +785,7 @@
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
-1484946652 c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\entity.h
+1485292602 c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\entity.h
 	<iostream>
 	<vector>
 	<fstream>
@@ -818,8 +818,9 @@
 	"Player.h"
 	"tile.h"
 
-1484946595 c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\player.h
+1485294403 c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\player.h
 	<Entity.h>
+	<Math.h>
 
 1480556643 c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\tile.h
 	<Entity.h>
@@ -833,7 +834,7 @@
 1480555764 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\basestate.cpp
 	"BaseState.h"
 
-1484946652 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\entity.cpp
+1484947982 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\entity.cpp
 	"Entity.h"
 
 1484163612 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\filemanager.cpp
@@ -842,7 +843,7 @@
 1480555764 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\game.cpp
 	"Game.h"
 
-1484946667 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\gamestate.cpp
+1485293637 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\gamestate.cpp
 	"GameState.h"
 
 1480555764 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\inputmanager.cpp
@@ -851,7 +852,7 @@
 1484163074 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\menustate.cpp
 	"MenuState.h"
 
-1484946914 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\player.cpp
+1485294457 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\player.cpp
 	"Player.h"
 
 1484162940 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\splashscreenstate.cpp

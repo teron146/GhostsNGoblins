@@ -37,6 +37,9 @@ class Entity
         virtual void idle();
         virtual void jump(bool);
 
+        bool grounded;
+        bool crouching;
+
 
     protected:
         bool kill;

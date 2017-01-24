@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include <Entity.h>
+#include <Math.h>
 
 
 class Player : public Entity
@@ -16,7 +17,6 @@ class Player : public Entity
         sf::RectangleShape& draw();
         sf::Sound& sound();
     private:
-        bool crouching;
         int jumper;
 };
 
