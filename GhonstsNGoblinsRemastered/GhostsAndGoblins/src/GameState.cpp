@@ -4,7 +4,7 @@ GameState::GameState(std::string level)
 {
     files.load("Game", level);
     entityVector.push_back(new Player(100, 0));
-    entityVector.push_back(new tile(10000.0f, 100.0f, 100.0f, 1400.0f));
+    entityVector.push_back(new tile(10000.0f, 100.0f, 100.0f, 1000.0f));
     stateSwitch = false;
     files.getMusic(0)->play();
     files.getMusic(0)->setLoop(true);
@@ -40,7 +40,7 @@ void GameState::processEvents(sf::RenderWindow &window, sf::Event event)
             }
         }
     }
-}
+ }
 
 void GameState::process(sf::RenderWindow &window)
 {

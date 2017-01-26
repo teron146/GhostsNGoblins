@@ -17,6 +17,7 @@ class Player : public Entity
         sf::RectangleShape& draw();
         sf::Sound& sound();
     private:
+        bool faceRight;
         int jumper;
 };
 
