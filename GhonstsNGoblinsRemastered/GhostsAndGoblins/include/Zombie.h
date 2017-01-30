@@ -5,17 +5,17 @@
 #include <Animation.h>
 #include <Math.h>
 
-class Zombie
+class Zombie : public Entity
 {
     public:
         Zombie(float, float);
         ~Zombie();
         //Checks if the player is near the zombie
         //if so come out of the ground and attack
-        spawn(sf::Vector2f);
-        movement(sf::Vector2f);
+        void spawn(sf::Vector2f);
+        void movement(sf::Vector2f);
+        sf::RectangleShape& draw();
     private:
-        bool faceRight;
         bool spawned;
 };
 

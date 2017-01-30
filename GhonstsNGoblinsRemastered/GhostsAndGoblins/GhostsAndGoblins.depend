@@ -785,7 +785,7 @@
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
-1485292602 c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\entity.h
+1485808244 c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\entity.h
 	<iostream>
 	<vector>
 	<fstream>
@@ -813,12 +813,14 @@
 	<SFML/Audio.hpp>
 	"BaseState.h"
 
-1484185803 c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\gamestate.h
+1485651311 c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\gamestate.h
 	<BaseState.h>
 	"Player.h"
+	"Zombie.h"
+	"Projectile.h"
 	"tile.h"
 
-1485295137 c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\player.h
+1485808244 c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\player.h
 	<Entity.h>
 	<Math.h>
 
@@ -834,7 +836,7 @@
 1480555764 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\basestate.cpp
 	"BaseState.h"
 
-1484947982 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\entity.cpp
+1485808244 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\entity.cpp
 	"Entity.h"
 
 1484163612 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\filemanager.cpp
@@ -843,7 +845,7 @@
 1480555764 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\game.cpp
 	"Game.h"
 
-1485366955 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\gamestate.cpp
+1485803102 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\gamestate.cpp
 	"GameState.h"
 
 1480555764 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\inputmanager.cpp
@@ -852,7 +854,7 @@
 1484163074 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\menustate.cpp
 	"MenuState.h"
 
-1485295221 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\player.cpp
+1485803425 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\player.cpp
 	"Player.h"
 
 1484162940 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\splashscreenstate.cpp
@@ -863,4 +865,18 @@
 
 1484165384 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\tile.cpp
 	"tile.h"
+
+1485468285 c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\zombie.h
+	<Entity.h>
+	<Animation.h>
+	<Math.h>
+
+1485536068 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\zombie.cpp
+	"Zombie.h"
+
+1485648731 c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\include\projectile.h
+	<Entity.h>
+
+1485803786 source:c:\users\adam sawyer\documents\github\ghostsngoblins\ghonstsngoblinsremastered\ghostsandgoblins\src\projectile.cpp
+	"Projectile.h"
 

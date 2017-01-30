@@ -14,6 +14,7 @@ class Player : public Entity
         void run(bool right = true);
         void jump(bool = false);
         void idle();
+        void toss(bool = true);
         sf::RectangleShape& draw();
         sf::Sound& sound();
     private:

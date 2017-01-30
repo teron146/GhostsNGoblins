@@ -114,11 +114,38 @@ void Entity::idle()
 }
 void Entity::jump(bool b)
 {
-
 }
 
+void Entity::spawn(sf::Vector2f)
+{
+}
 
+void Entity::movement(sf::Vector2f)
+{
+}
 
+bool Entity::hasID(std::string identifier)
+{
+    //Loops through entities ID's
+    for(int r = 0; r < getID().size(); r++ )
+    {
+        if( getID().at(r) == identifier)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Entity::killProjectile()
+{
+    return true;
+}
+
+void Entity::toss(bool a)
+{
+
+}
 
 
 

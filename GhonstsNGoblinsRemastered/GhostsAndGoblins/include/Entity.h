@@ -20,6 +20,7 @@ class Entity
         void moveEntity(float, float);
         sf::FloatRect getBoundingBox(std::string i = "current");
         sf::Vector2<float> get_Velocity();
+        bool hasID(std::string);
         //This returns what sprite to draw based on current conditions
         virtual sf::RectangleShape& draw();
         //This returns what sound to create based on current conditions
@@ -35,10 +36,17 @@ class Entity
         virtual void crouch();
         virtual void run(bool);
         virtual void idle();
+        virtual void toss(bool);
         virtual void jump(bool);
 
+        //Zombie
+        virtual void spawn(sf::Vector2f);
+        virtual void movement(sf::Vector2f);
         bool grounded;
         bool crouching;
+
+        //Bool
+        virtual bool killProjectile();
 
 
     protected:

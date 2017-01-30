@@ -7,7 +7,7 @@ Player::Player(float posX, float posY)
     temp.x = 100;
     temp.y = 120;
     rect.setSize(temp);
-    rect.setPosition(posX, posY);
+    moveEntity(posX, posY);
 
     ID.push_back("playerMovement");
     ID.push_back("playerAction");
@@ -39,6 +39,12 @@ Player::Player(float posX, float posY)
     //4
     animations.push_back( new Animation( &texture.at(1), sf::Vector2u(1,5), 0.1f, 2) );
     animations.at(animations.size() - 1)->ID = "no_armor_crouch_right";
+    //5
+    animations.push_back(new Animation(&texture.at(0), sf::Vector2u(2,17), 0.2f, 6));
+    animations.at(animations.size() - 1)->ID = "no_armor_toss_right";
+    //6
+    animations.push_back(new Animation(&texture.at(0), sf::Vector2u(2,17), 0.2f, 6, false));
+    animations.at(animations.size() - 1)->ID = "no_armor_toss_left";
 
     //Other
     crouching = false;
@@ -65,10 +71,14 @@ sf::Sound& Player::sound()
 
 void Player::crouch()
 {
+    sf::Vector2f temp;
     if(grounded == true)
     {
         crouching = true;
         currentAnimation = 4;
+        temp.x = 80;
+        temp.y = 120;
+        rect.setSize(temp);
         rect.setTexture(animations.at(currentAnimation)->texture);
     }
 }
@@ -96,6 +106,10 @@ void Player::idle()
 {
     currentAnimation = 0;
     rect.setTexture(animations.at(currentAnimation)->texture);
+    sf::Vector2f temp;
+    temp.x = 100;
+    temp.y = 120;
+    rect.setSize(temp);
 }
 
 void Player::jump(bool start)
@@ -120,5 +134,9 @@ void Player::jump(bool start)
     }
 }
 
+void Player::toss(bool faceRight)
+{
+
+}
 
 

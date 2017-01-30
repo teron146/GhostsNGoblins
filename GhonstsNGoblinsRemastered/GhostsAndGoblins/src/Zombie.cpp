@@ -2,13 +2,37 @@
 
 Zombie::Zombie(float posX, float posY)
 {
+    spawned = false;
     sf::Vector2f temp;
     temp.x = 100;
     temp.y = 150;
     rect.setSize(temp);
-    rect.setPosition(posX, posY);
+    moveEntity(posX, posY);
     ID.push_back("zombie");
     ID.push_back("enemy");
+    //ID.push_back("gravity");
+    //ID.push_back("moves");
+    currentAnimation = 3;
+    //File Grabbing
+    getTexture("./Textures/Zombie.png");
+
+    //Animation
+
+    //0
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(3,3), 0.3f, 1 ) );
+    animations.at(animations.size() - 1)->ID = "Spawning";
+
+    //1
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(3,3), 0.6f, 0, false ) );
+    animations.at(animations.size() - 1)->ID = "walking_Right";
+
+    //2
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(3,3), 0.6f, 0 ) );
+    animations.at(animations.size() - 1)->ID = "walking_Left";
+
+    //3
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(3,3), 0.6f, 2 ) );
+    animations.at(animations.size() - 1)->ID = "hidden";
 
 }
 
@@ -16,19 +40,46 @@ Zombie::~Zombie()
 {
 }
 
-Zombie::Spawn(sf::Vector2f playerPos)
-{
-    //If the player is within 300 units right or left
-    // of the zombie spawn
-    if( abs(playerPos.y - rect.getPosition().y) < 200
-       && abs(playerPos.x - rect.getPosition().x) < 300 )
-        spawned = true;
-}
-
-Zombie::movement(sf::Vector2f playerPos)
+void Zombie::spawn(sf::Vector2f playerPos)
 {
     if(spawned == true)
     {
-
+        //Does Nothing
     }
+    //If the player is within 300 units right or left
+    // of the zombie spawn
+    else if( abs(playerPos.y - get_Position().y) < 200
+       && abs(playerPos.x - get_Position().x) < 300 )
+    {
+        spawned = true;
+        //currentAnimation = 1;
+       // rect.setTexture(animations.at(currentAnimation)->texture);
+    }
+}
+
+void Zombie::movement(sf::Vector2f playerPos)
+{
+    if(spawned == true)
+    {
+        if(playerPos.x < get_Position().x)
+        {
+            currentAnimation = 2;
+            rect.setTexture(animations.at(currentAnimation)->texture);
+            moveEntity(-5, 0);
+        }
+        else
+        {
+            currentAnimation = 1;
+            rect.setTexture(animations.at(currentAnimation)->texture);
+            moveEntity(5, 0);
+        }
+    }
+}
+
+sf::RectangleShape& Zombie::draw()
+{
+    deltaTime = clock.restart().asSeconds();
+    animations.at(currentAnimation)->update(deltaTime);
+    rect.setTextureRect(animations.at(currentAnimation)->uvRect);
+    return rect;
 }
