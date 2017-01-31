@@ -38,7 +38,12 @@ class Entity
         virtual void idle();
         virtual void toss(bool);
         virtual void jump(bool);
-
+        virtual void changeDirection(bool);
+        virtual void climb();
+        bool onLadder;
+        bool faceRight;
+        bool climbing;
+        bool getDirection();
         //Zombie
         virtual void spawn(sf::Vector2f);
         virtual void movement(sf::Vector2f);

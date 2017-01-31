@@ -6,6 +6,7 @@
 #include "Zombie.h"
 #include "Projectile.h"
 #include "tile.h"
+#include "ladder.h"
 
 
 class GameState : public BaseState

@@ -147,6 +147,19 @@ void Entity::toss(bool a)
 
 }
 
+void Entity::changeDirection(bool a)
+{
+}
+
+bool Entity::getDirection()
+{
+    return faceRight;
+}
+
+void Entity::climb()
+{
+
+}
 
 
 

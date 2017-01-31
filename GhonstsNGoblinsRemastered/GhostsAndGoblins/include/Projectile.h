@@ -7,11 +7,12 @@
 class Projectile : public Entity
 {
     public:
-        Projectile(std::string, sf::Vector2f);
+        Projectile(std::string, sf::Vector2f, bool);
         ~Projectile();
         bool killProjectile();
         sf::RectangleShape& draw();
     private:
+        bool direction;
         int frameCount;
 };
 

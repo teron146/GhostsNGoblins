@@ -15,11 +15,13 @@ class Player : public Entity
         void jump(bool = false);
         void idle();
         void toss(bool = true);
+        void changeDirection(bool);
+        void climb();
         sf::RectangleShape& draw();
         sf::Sound& sound();
+
     private:
-        bool faceRight;
-        int jumper;
+        int jumper, tossing;
 };
 
 #endif // PLAYER_H
