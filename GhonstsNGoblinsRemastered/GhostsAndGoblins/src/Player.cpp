@@ -59,10 +59,11 @@ Player::Player(float posX, float posY)
     animations.push_back( new Animation( &texture.at(1), sf::Vector2u(1,5), 0.1f, 2, false) );
     animations.at(animations.size() - 1)->ID = "no_armor_crouch_left";
     //11
-    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 13, false) );
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 12, false) );
     animations.at(animations.size() - 1)->ID = "no_armor_climb";
 
     //Other
+    jumper = 31;
     crouching = false;
     kill = false;
     climbing = false;
@@ -77,7 +78,6 @@ Player::~Player()
 
 sf::RectangleShape& Player::draw()
 {
-    onLadder = false;
     deltaTime = clock.restart().asSeconds();
     animations.at(currentAnimation)->update(deltaTime);
     rect.setTextureRect(animations.at(currentAnimation)->uvRect);
@@ -204,14 +204,17 @@ void Player::changeDirection(bool direction)
 
 }
 
-void Player::climb()
+void Player::climb(bool direction)
 {
     climbing = false;
-    if(crouching == false && grounded == true)
+    if(crouching == false)
     {
         climbing = true;
         currentAnimation = 11;
-        moveEntity(0, -10);
+        if(direction)
+            moveEntity(0, -10);
+        else
+            moveEntity(0, 10);
         rect.setTexture(animations.at(currentAnimation)->texture);
     }
 }

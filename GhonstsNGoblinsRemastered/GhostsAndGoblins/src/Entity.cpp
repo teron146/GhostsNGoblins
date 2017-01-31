@@ -156,7 +156,7 @@ bool Entity::getDirection()
     return faceRight;
 }
 
-void Entity::climb()
+void Entity::climb(bool a)
 {
 
 }

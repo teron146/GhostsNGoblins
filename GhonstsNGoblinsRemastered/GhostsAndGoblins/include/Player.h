@@ -16,7 +16,7 @@ class Player : public Entity
         void idle();
         void toss(bool = true);
         void changeDirection(bool);
-        void climb();
+        void climb(bool = true);
         sf::RectangleShape& draw();
         sf::Sound& sound();
 

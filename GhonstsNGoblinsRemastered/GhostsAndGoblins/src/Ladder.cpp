@@ -8,7 +8,7 @@ Ladder::Ladder(float height, float width, float posX , float posY)
     rect.setSize(temp);
     moveEntity(posX,posY);
     ID.push_back("ladder");
-    getTexture("./Textures/Error.jpg");
+    getTexture("./Textures/Ladder.png");
     rect.setTexture(&texture.back());
 }
 

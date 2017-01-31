@@ -39,7 +39,7 @@ class Entity
         virtual void toss(bool);
         virtual void jump(bool);
         virtual void changeDirection(bool);
-        virtual void climb();
+        virtual void climb(bool);
         bool onLadder;
         bool faceRight;
         bool climbing;

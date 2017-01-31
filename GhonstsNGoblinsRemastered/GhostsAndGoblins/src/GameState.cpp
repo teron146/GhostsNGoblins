@@ -3,8 +3,8 @@
 GameState::GameState(std::string level)
 {
     files.load("Game", level);
-    entityVector.push_back(new Ladder(100, 600, 300, 400));
-    entityVector.push_back(new Player(100, 0));
+    entityVector.push_back(new Ladder(100, 1000, 300, 400));
+    entityVector.push_back(new Player(100, 700));
     for(int i = 0; i < 10000; i += 50)
         entityVector.push_back(new Zombie(600 + i, 850));
     entityVector.push_back(new tile(10000.0f, 100.0f, 0, 1000.0f));
@@ -105,7 +105,11 @@ void GameState::PlayerMovement(Entity& player)
         player.idle();
     else if(inputManager.keyDown(sf::Keyboard::W) && player.onLadder == true)
     {
-        player.climb();
+        player.climb(true);
+    }
+    if(inputManager.keyDown(sf::Keyboard::S) && player.onLadder == true)
+    {
+        player.climb(false);
     }
 
     player.crouching = false;
@@ -115,6 +119,7 @@ void GameState::PlayerMovement(Entity& player)
     }
     player.jump(false);
     player.toss(false);
+    player.onLadder = false;
     playerPOS = player.get_Position();
 }
 
@@ -188,7 +193,8 @@ void GameState::collide(Entity& entity)
             }
             else if(entity.hasID("playerMovement") && entityVector.at(i)->hasID("ladder"))
             {
-                entity.onLadder == true;
+                entity.onLadder = true;
+                entity.moveEntity(0, -15);
             }
             else if(!entity.hasID("projectile") && !entityVector.at(i)->hasID("projectile"))
             {
