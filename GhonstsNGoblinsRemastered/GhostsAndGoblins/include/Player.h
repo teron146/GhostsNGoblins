@@ -16,7 +16,8 @@ class Player : public Entity
         void idle();
         void toss(bool = true);
         void changeDirection(bool);
-        void climb(bool = true);
+        void climb(int = 0);
+        void pickup(std::string);
         sf::RectangleShape& draw();
         sf::Sound& sound();
 

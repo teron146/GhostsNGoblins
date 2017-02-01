@@ -7,7 +7,7 @@
 class Ladder : public Entity
 {
     public:
-        Ladder(float height = 100, float width = 100, float posX = 0, float posY = 0);
+        Ladder(float posX = 0, float posY = 0);
         ~Ladder();
         sf::RectangleShape& draw();
 

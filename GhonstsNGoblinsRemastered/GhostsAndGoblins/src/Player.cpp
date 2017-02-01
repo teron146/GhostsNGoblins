@@ -9,6 +9,7 @@ Player::Player(float posX, float posY)
     faceRight = true;
     rect.setSize(temp);
     moveEntity(posX, posY);
+    hasArmor = false;
 
     ID.push_back("playerMovement");
     ID.push_back("playerAction");
@@ -38,7 +39,7 @@ Player::Player(float posX, float posY)
     deltaTime = 0.0f;
     currentAnimation = 1;
     //4
-    animations.push_back( new Animation( &texture.at(1), sf::Vector2u(1,5), 0.1f, 2) );
+    animations.push_back( new Animation( &texture.at(1), sf::Vector2u(1,5), 0.1f, 0) );
     animations.at(animations.size() - 1)->ID = "no_armor_crouch_right";
     //5
     animations.push_back(new Animation(&texture.at(0), sf::Vector2u(2,17), 0.2f, 6));
@@ -56,11 +57,39 @@ Player::Player(float posX, float posY)
     animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 5, false) );
     animations.at(animations.size() - 1)->ID = "no_armor_jump_left";
     //10
-    animations.push_back( new Animation( &texture.at(1), sf::Vector2u(1,5), 0.1f, 2, false) );
+    animations.push_back( new Animation( &texture.at(1), sf::Vector2u(1,5), 0.1f, 0, false) );
     animations.at(animations.size() - 1)->ID = "no_armor_crouch_left";
     //11
     animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 12, false) );
     animations.at(animations.size() - 1)->ID = "no_armor_climb";
+    //12
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 30.f, 12, false) );
+    animations.at(animations.size() - 1)->ID = "no_armor_climb_idle";
+    //13
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.6f, 2 ) );
+    animations.at(animations.size() - 1)->ID = "armor_idle_right";
+    //14
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.6f, 2, false ) );
+    animations.at(animations.size() - 1)->ID = "armor_idle_left";
+    //15
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 3 ) );
+    animations.at(animations.size() - 1)->ID = "armor_run_right";
+    //16
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 3, false ) );
+    animations.at(animations.size() - 1)->ID = "armor_run_left";
+    //17
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 4) );
+    animations.at(animations.size() - 1)->ID = "armor_jump_right";
+    //18
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 4, false) );
+    animations.at(animations.size() - 1)->ID = "armor_jump_left";
+    //19
+    animations.push_back( new Animation( &texture.at(1), sf::Vector2u(1,5), 0.1f, 1) );
+    animations.at(animations.size() - 1)->ID = "armor_crouch_right";
+    //20
+    animations.push_back( new Animation( &texture.at(1), sf::Vector2u(1,5), 0.1f, 1, false) );
+    animations.at(animations.size() - 1)->ID = "armor_crouch_left";
+
 
     //Other
     jumper = 31;
@@ -112,14 +141,20 @@ void Player::run(bool right)
     {
         if(right)
         {
-            currentAnimation = 1;
+            if(hasArmor)
+                currentAnimation = 15;
+            else
+                currentAnimation = 1;
             moveEntity(10, 0);
             rect.setTexture(animations.at(currentAnimation)->texture);
             faceRight = true;
         }
         else
         {
-            currentAnimation = 2;
+            if(hasArmor)
+                currentAnimation = 16;
+            else
+                currentAnimation = 2;
             moveEntity(-10, 0);
             rect.setTexture(animations.at(currentAnimation)->texture);
             faceRight = false;
@@ -135,12 +170,18 @@ void Player::idle()
     rect.setSize(temp);
     if(faceRight == true)
     {
-        currentAnimation = 0;
+        if(hasArmor == true)
+            currentAnimation = 13;
+        else
+            currentAnimation = 0;
         rect.setTexture(animations.at(currentAnimation)->texture);
     }
     else
     {
-        currentAnimation = 8;
+        if(hasArmor == true)
+            currentAnimation = 14;
+        else
+            currentAnimation = 8;
         rect.setTexture(animations.at(currentAnimation)->texture);
     }
 }
@@ -150,9 +191,19 @@ void Player::jump(bool start)
     if(start == true)
     {
         if(faceRight == true)
-            currentAnimation = 3;
+        {
+            if(hasArmor)
+                currentAnimation = 17;
+            else
+                currentAnimation = 3;
+        }
         else
-            currentAnimation = 9;
+        {
+            if(hasArmor)
+                currentAnimation = 18;
+            else
+                currentAnimation = 9;
+        }
         jumper = 0;
         rect.setTexture(animations.at(currentAnimation)->texture);
     }
@@ -161,9 +212,19 @@ void Player::jump(bool start)
         jumper++;
         moveEntity(0, (-40 * pow(0.95, jumper)));
         if(faceRight == true)
-            currentAnimation = 3;
+        {
+            if(hasArmor)
+                currentAnimation = 17;
+            else
+                currentAnimation = 3;
+        }
         else
-            currentAnimation = 9;
+        {
+            if(hasArmor)
+                currentAnimation = 18;
+            else
+                currentAnimation = 9;
+        }
         rect.setTexture(animations.at(currentAnimation)->texture);
     }
     else if (jumper == 31)
@@ -204,19 +265,33 @@ void Player::changeDirection(bool direction)
 
 }
 
-void Player::climb(bool direction)
+void Player::climb(int direction)
 {
     climbing = false;
     if(crouching == false)
     {
         climbing = true;
-        currentAnimation = 11;
-        if(direction)
-            moveEntity(0, -10);
+        if(direction < 2)
+            currentAnimation = 11;
         else
-            moveEntity(0, 10);
-        rect.setTexture(animations.at(currentAnimation)->texture);
+            currentAnimation = 12;
+        if(direction == 0)
+        {
+            moveEntity(0, -2.5);
+            rect.setTexture(animations.at(currentAnimation)->texture);
+        }
+        else if(direction == 1)
+        {
+            moveEntity(0, 2.5);
+            rect.setTexture(animations.at(currentAnimation)->texture);
+        }
+
     }
 }
 
+void Player::pickup(std::string type)
+{
+    if(type == "armor")
+        hasArmor = true;
+}
 

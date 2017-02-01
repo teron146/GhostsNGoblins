@@ -39,7 +39,10 @@ class Entity
         virtual void toss(bool);
         virtual void jump(bool);
         virtual void changeDirection(bool);
-        virtual void climb(bool);
+        virtual void climb(int);
+        virtual void pickup(std::string);
+        virtual std::string getType();
+        bool hasArmor;
         bool onLadder;
         bool faceRight;
         bool climbing;

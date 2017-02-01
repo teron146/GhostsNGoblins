@@ -156,12 +156,19 @@ bool Entity::getDirection()
     return faceRight;
 }
 
-void Entity::climb(bool a)
+void Entity::climb(int a)
 {
 
 }
 
+void Entity::pickup(std::string a)
+{
+}
 
+std::string Entity::getType()
+{
+    return "meme";
+}
 
 
 

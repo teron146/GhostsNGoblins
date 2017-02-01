@@ -1,10 +1,10 @@
 #include "Ladder.h"
 
-Ladder::Ladder(float height, float width, float posX , float posY)
+Ladder::Ladder(float posX , float posY)
 {
     sf::Vector2f temp;
-    temp.x = height;
-    temp.y = width;
+    temp.x = 75;
+    temp.y = 100;
     rect.setSize(temp);
     moveEntity(posX,posY);
     ID.push_back("ladder");

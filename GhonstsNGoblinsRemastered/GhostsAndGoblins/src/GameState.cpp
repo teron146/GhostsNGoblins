@@ -3,10 +3,13 @@
 GameState::GameState(std::string level)
 {
     files.load("Game", level);
-    entityVector.push_back(new Ladder(100, 1000, 300, 400));
+    for(int i = 0; i < 5; i++)
+        entityVector.push_back(new Ladder(300, 850 - i * 75));
     entityVector.push_back(new Player(100, 700));
     for(int i = 0; i < 10000; i += 50)
         entityVector.push_back(new Zombie(600 + i, 850));
+    entityVector.push_back(new Pickup(200, 940, "armor"));
+
     entityVector.push_back(new tile(10000.0f, 100.0f, 0, 1000.0f));
     entityVector.push_back(new tile(600,100 , 300, 500));
     stateSwitch = false;
@@ -85,7 +88,7 @@ void GameState::process(sf::RenderWindow &window)
 }
 void GameState::gravity(Entity& entity)
 {
-    entity.moveEntity(0, 15);
+        entity.moveEntity(0, 15);
 }
 
 //Moves the player based on keyboard input
@@ -105,13 +108,17 @@ void GameState::PlayerMovement(Entity& player)
         player.idle();
     else if(inputManager.keyDown(sf::Keyboard::W) && player.onLadder == true)
     {
-        player.climb(true);
+        player.climb(0);
     }
     if(inputManager.keyDown(sf::Keyboard::S) && player.onLadder == true)
     {
-        player.climb(false);
+        player.climb(1);
     }
-
+    if(player.onLadder == true)
+        player.moveEntity(0, -15);
+    if(player.onLadder && !player.grounded && !inputManager.keyDown(sf::Keyboard::W)
+       && !inputManager.keyDown(sf::Keyboard::S))
+        player.climb(2);
     player.crouching = false;
     if(inputManager.keyDown(sf::Keyboard::S))
     {
@@ -186,6 +193,11 @@ void GameState::collide(Entity& entity)
         sf::FloatRect box2 = entityVector.at(i)->getBoundingBox();
         if(box1.intersects(box2))
         {
+            if(entityVector.at(i)->hasID("pickup") && entity.hasID("playerMovement"))
+            {
+                entity.pickup(entityVector.at(i)->getType());
+                killList.push_back(entityVector.at(i));
+            }
             if(entity.hasID("projectile") && entityVector.at(i)->hasID("enemy"))
             {
                 killList.push_back(entityVector.at(i));
@@ -194,9 +206,8 @@ void GameState::collide(Entity& entity)
             else if(entity.hasID("playerMovement") && entityVector.at(i)->hasID("ladder"))
             {
                 entity.onLadder = true;
-                entity.moveEntity(0, -15);
             }
-            else if(!entity.hasID("projectile") && !entityVector.at(i)->hasID("projectile"))
+            else if(entityVector.at(i)->hasID("tile"))
             {
                 float box1_bottom = box1.top + box1.height;
                 float OldBox1_bottom = oldBox1.top + oldBox1.height;

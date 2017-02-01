@@ -7,6 +7,7 @@
 #include "Projectile.h"
 #include "tile.h"
 #include "ladder.h"
+#include "Pickup.h"
 
 
 class GameState : public BaseState
