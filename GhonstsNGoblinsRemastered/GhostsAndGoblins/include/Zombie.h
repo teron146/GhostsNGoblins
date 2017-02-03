@@ -18,6 +18,7 @@ class Zombie : public Entity
         bool fromRight();
     private:
         bool spawned;
+        sf::Clock spawning;
 };
 
 #endif // ZOMBIE_H

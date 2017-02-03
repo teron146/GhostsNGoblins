@@ -9,7 +9,6 @@ Zombie::Zombie(float posX, float posY)
     rect.setSize(temp);
     moveEntity(posX, posY);
     ID.push_back("zombie");
-    ID.push_back("enemy");
     currentAnimation = 3;
     //File Grabbing
     getTexture("./Textures/Zombie.png");
@@ -40,24 +39,31 @@ Zombie::~Zombie()
 
 void Zombie::spawn(sf::Vector2f playerPos)
 {
-    if(spawned == true)
+    if(spawning.getElapsedTime() < sf::seconds(0.9f) && spawned == true)
     {
-        //Does Nothing
+        currentAnimation = 0;
+        rect.setTexture(animations.at(currentAnimation)->texture);
+
     }
     //If the player is within 300 units right or left
     // of the zombie spawn
     else if( abs(playerPos.y - get_Position().y) < 200
-       && abs(playerPos.x - get_Position().x) < 300 )
+       && abs(playerPos.x - get_Position().x) < 300 && spawned != true)
     {
+        ID.push_back("enemy");
         spawned = true;
-        //currentAnimation = 1;
-       // rect.setTexture(animations.at(currentAnimation)->texture);
+        spawning.restart();
+    }
+    else if(spawned == false)
+    {
+        currentAnimation = 3;
+        rect.setTexture(animations.at(currentAnimation)->texture);
     }
 }
 
 void Zombie::movement(sf::Vector2f playerPos)
 {
-    if(spawned == true)
+    if(spawned == true && spawning.getElapsedTime() > sf::seconds(0.9f))
     {
         if(playerPos.x < get_Position().x)
         {
