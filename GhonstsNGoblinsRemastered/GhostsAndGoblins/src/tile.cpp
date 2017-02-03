@@ -9,7 +9,10 @@ tile::tile(float height, float width, float posX, float posY)
     moveEntity(posX,posY);
     ID.push_back("tile");
 
-    getTexture("./Textures/Error.jpg");
+    if(height < 5000)
+        getTexture("./Textures/Grass.png");
+    else
+        getTexture("./Textures/longGrass.png");
     rect.setTexture(&texture.back());
 
     kill = false;

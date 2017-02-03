@@ -4,14 +4,14 @@ GameState::GameState(std::string level)
 {
     files.load("Game", level);
     for(int i = 0; i < 5; i++)
-        entityVector.push_back(new Ladder(300, 850 - i * 75));
+        entityVector.push_back(new Ladder(300, 800 - i * 75));
     entityVector.push_back(new Player(100, 700));
     for(int i = 0; i < 10000; i += 50)
         entityVector.push_back(new Zombie(600 + i, 850));
     entityVector.push_back(new Pickup(200, 940, "armor"));
 
     entityVector.push_back(new tile(10000.0f, 100.0f, 0, 1000.0f));
-    entityVector.push_back(new tile(600,100 , 300, 500));
+    entityVector.push_back(new tile(600,100 , 375, 500));
     stateSwitch = false;
     files.getMusic(0)->play();
     files.getMusic(0)->setLoop(true);
