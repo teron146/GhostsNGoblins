@@ -170,5 +170,23 @@ std::string Entity::getType()
     return "meme";
 }
 
+void Entity::damaged(bool a)
+{
 
+}
+
+void Entity::damaged()
+{
+
+}
+
+bool Entity::dead()
+{
+    return false;
+}
+
+bool Entity::fromRight()
+{
+    return false;
+}
 

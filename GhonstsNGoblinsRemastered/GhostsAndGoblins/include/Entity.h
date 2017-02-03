@@ -41,6 +41,10 @@ class Entity
         virtual void changeDirection(bool);
         virtual void climb(int);
         virtual void pickup(std::string);
+        virtual void damaged(bool);
+        virtual void damaged();
+        virtual bool dead();
+        virtual bool fromRight();
         virtual std::string getType();
         bool hasArmor;
         bool onLadder;
@@ -59,6 +63,7 @@ class Entity
 
     protected:
         bool kill;
+        bool comingRight;
         sf::Time eventTime;
         int healthPoints;
         //This is the shape that will actually be the entity

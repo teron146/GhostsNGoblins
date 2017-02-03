@@ -18,11 +18,16 @@ class Player : public Entity
         void changeDirection(bool);
         void climb(int = 0);
         void pickup(std::string);
+        void damaged(bool right);
+        void damaged();
+        bool dead();
         sf::RectangleShape& draw();
         sf::Sound& sound();
 
     private:
-        int jumper, tossing;
+        int jumper, tossing, dying;
+        bool bumpDirection, death;
+        sf::Clock postDeath;
 };
 
 #endif // PLAYER_H

@@ -29,7 +29,7 @@ void StateManager::processEvents(sf::RenderWindow &window, sf::Event event)
         else if(states.back()->nextState() == "GameState")
         {
             this->pop_State();
-            this->push_State(new GameState("Level_1"));
+            this->push_State(new GameState);
         }
     }
 }

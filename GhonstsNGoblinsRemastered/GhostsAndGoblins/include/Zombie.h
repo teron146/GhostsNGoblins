@@ -15,6 +15,7 @@ class Zombie : public Entity
         void spawn(sf::Vector2f);
         void movement(sf::Vector2f);
         sf::RectangleShape& draw();
+        bool fromRight();
     private:
         bool spawned;
 };

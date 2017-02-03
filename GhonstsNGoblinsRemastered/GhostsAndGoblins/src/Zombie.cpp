@@ -63,12 +63,14 @@ void Zombie::movement(sf::Vector2f playerPos)
     {
         if(playerPos.x < get_Position().x)
         {
+            comingRight = true;
             currentAnimation = 2;
             rect.setTexture(animations.at(currentAnimation)->texture);
             moveEntity(-5, 0);
         }
         else
         {
+            comingRight = false;
             currentAnimation = 1;
             rect.setTexture(animations.at(currentAnimation)->texture);
             moveEntity(5, 0);
@@ -82,4 +84,9 @@ sf::RectangleShape& Zombie::draw()
     animations.at(currentAnimation)->update(deltaTime);
     rect.setTextureRect(animations.at(currentAnimation)->uvRect);
     return rect;
+}
+
+bool Zombie::fromRight()
+{
+    return comingRight;
 }

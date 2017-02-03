@@ -116,13 +116,22 @@ void GameState::PlayerMovement(Entity& player)
     }
     if(player.onLadder == true)
         player.moveEntity(0, -15);
+
     if(player.onLadder && !player.grounded && !inputManager.keyDown(sf::Keyboard::W)
        && !inputManager.keyDown(sf::Keyboard::S))
         player.climb(2);
+
     player.crouching = false;
     if(inputManager.keyDown(sf::Keyboard::S))
     {
         player.crouch();
+    }
+
+    player.damaged();
+    if(player.dead() == true)
+    {
+         stateSwitch = true;
+         nextStateS = "SplashScreenState";
     }
     player.jump(false);
     player.toss(false);
@@ -193,6 +202,10 @@ void GameState::collide(Entity& entity)
         sf::FloatRect box2 = entityVector.at(i)->getBoundingBox();
         if(box1.intersects(box2))
         {
+            if(entity.hasID("playerMovement") && entityVector.at(i)->hasID("enemy"))
+            {
+                entity.damaged(entityVector.at(i)->fromRight());
+            }
             if(entityVector.at(i)->hasID("pickup") && entity.hasID("playerMovement"))
             {
                 entity.pickup(entityVector.at(i)->getType());
