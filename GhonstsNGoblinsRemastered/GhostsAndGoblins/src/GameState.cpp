@@ -94,23 +94,23 @@ void GameState::gravity(Entity& entity)
 //Moves the player based on keyboard input
 void GameState::PlayerMovement(Entity& player)
 {
-    if(inputManager.keyDown(sf::Keyboard::D))
+    if(inputManager.keyDown(sf::Keyboard::D) && !player.dead())
     {
         player.run(true);
         player.changeDirection(true);
     }
-    else if(inputManager.keyDown(sf::Keyboard::A))
+    else if(inputManager.keyDown(sf::Keyboard::A)&& !player.dead())
     {
         player.run(false);
         player.changeDirection(false);
     }
-    else if(!inputManager.keyDown(sf::Keyboard::W))
+    else if(!inputManager.keyDown(sf::Keyboard::W)&& !player.dead())
         player.idle();
-    else if(inputManager.keyDown(sf::Keyboard::W) && player.onLadder == true)
+    else if(inputManager.keyDown(sf::Keyboard::W) && player.onLadder == true && !player.dead())
     {
         player.climb(0);
     }
-    if(inputManager.keyDown(sf::Keyboard::S) && player.onLadder == true)
+    if(inputManager.keyDown(sf::Keyboard::S) && player.onLadder == true && !player.dead())
     {
         player.climb(1);
     }
@@ -118,11 +118,11 @@ void GameState::PlayerMovement(Entity& player)
         player.moveEntity(0, -15);
 
     if(player.onLadder && !player.grounded && !inputManager.keyDown(sf::Keyboard::W)
-       && !inputManager.keyDown(sf::Keyboard::S))
+       && !inputManager.keyDown(sf::Keyboard::S) && !player.dead())
         player.climb(2);
 
     player.crouching = false;
-    if(inputManager.keyDown(sf::Keyboard::S))
+    if(inputManager.keyDown(sf::Keyboard::S) && !player.dead())
     {
         player.crouch();
     }
@@ -202,7 +202,7 @@ void GameState::collide(Entity& entity)
         sf::FloatRect box2 = entityVector.at(i)->getBoundingBox();
         if(box1.intersects(box2))
         {
-            if(entity.hasID("playerMovement") && entityVector.at(i)->hasID("enemy"))
+            if(entity.hasID("playerMovement") && entityVector.at(i)->hasID("enemy") && entity.invincibility())
             {
                 entity.damaged(entityVector.at(i)->fromRight());
             }
@@ -216,7 +216,7 @@ void GameState::collide(Entity& entity)
                 killList.push_back(entityVector.at(i));
                 killList.push_back(&entity);
             }
-            else if(entity.hasID("playerMovement") && entityVector.at(i)->hasID("ladder"))
+            else if(entity.hasID("playerMovement") && entityVector.at(i)->hasID("ladder") && !entity.dead())
             {
                 entity.onLadder = true;
             }

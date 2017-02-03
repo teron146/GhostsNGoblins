@@ -368,6 +368,7 @@ void Player::pickup(std::string type)
 
 void Player::damaged(bool right)
 {
+        invincibilityTimer.restart();
         if(faceRight == true)
         {
             if(hasArmor)
@@ -412,9 +413,9 @@ void Player::damaged()
                 currentAnimation = 28;
         }
         if(bumpDirection)
-            moveEntity(-10, -20);
+            moveEntity(-20, -30);
         else
-            moveEntity(10, -20);
+            moveEntity(20, -30);
         dying++;
         rect.setTexture(animations.at(currentAnimation)->texture);
     }
@@ -433,7 +434,17 @@ bool Player::dead()
         else
             currentAnimation = 30;
         rect.setTexture(animations.at(currentAnimation)->texture);
+        return true;
     }
     return false;
 }
 
+bool Player::invincibility()
+{
+    if(invincibilityTimer.getElapsedTime() > sf::seconds(1))
+    {
+        return true;
+    }
+    else
+        return false;
+}

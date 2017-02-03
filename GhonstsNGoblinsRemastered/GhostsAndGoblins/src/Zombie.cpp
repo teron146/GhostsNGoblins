@@ -10,8 +10,6 @@ Zombie::Zombie(float posX, float posY)
     moveEntity(posX, posY);
     ID.push_back("zombie");
     ID.push_back("enemy");
-    //ID.push_back("gravity");
-    //ID.push_back("moves");
     currentAnimation = 3;
     //File Grabbing
     getTexture("./Textures/Zombie.png");

@@ -46,6 +46,7 @@ class Entity
         virtual bool dead();
         virtual bool fromRight();
         virtual std::string getType();
+        virtual bool invincibility();
         bool hasArmor;
         bool onLadder;
         bool faceRight;

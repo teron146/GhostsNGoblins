@@ -190,3 +190,7 @@ bool Entity::fromRight()
     return false;
 }
 
+bool Entity::invincibility()
+{
+    return false;
+}

@@ -21,6 +21,7 @@ class Player : public Entity
         void damaged(bool right);
         void damaged();
         bool dead();
+        bool invincibility();
         sf::RectangleShape& draw();
         sf::Sound& sound();
 
@@ -28,6 +29,7 @@ class Player : public Entity
         int jumper, tossing, dying;
         bool bumpDirection, death;
         sf::Clock postDeath;
+        sf::Clock invincibilityTimer;
 };
 
 #endif // PLAYER_H
