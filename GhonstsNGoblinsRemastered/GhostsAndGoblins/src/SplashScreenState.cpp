@@ -3,9 +3,6 @@
 SplashScreenState::SplashScreenState()
 {
     entityVector.push_back(new backGround(800, 800, 0, 0));
-    //Music is currently not working
-    //BaseState::files.getMusic(0)->play();
-    //BaseState::files.getMusic(0)->setLoop(true);
     stateSwitch = false;
     c1.restart();
 
@@ -17,8 +14,6 @@ SplashScreenState::~SplashScreenState()
     //dtor
 }
 
-//Work in progress
-//Dependencies not yet created
 void SplashScreenState::processEvents(sf::RenderWindow &window, sf::Event event)
 {
     inputManager.update(event);

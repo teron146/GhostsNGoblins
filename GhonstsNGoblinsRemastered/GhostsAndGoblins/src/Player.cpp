@@ -34,7 +34,7 @@ Player::Player(float posX, float posY)
     animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 1, false ) );
     animations.at(animations.size() - 1)->ID = "no_armor_run_left";
     //3
-    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 5) );
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.5f, 5) );
     animations.at(animations.size() - 1)->ID = "no_armor_jump_right";
     deltaTime = 0.0f;
     currentAnimation = 1;
@@ -48,13 +48,13 @@ Player::Player(float posX, float posY)
     animations.push_back(new Animation(&texture.at(0), sf::Vector2u(2,17), 0.2f, 6, false));
     animations.at(animations.size() - 1)->ID = "no_armor_toss_left";
     //7
-    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 5, false) );
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.5f, 5, false) );
     animations.at(animations.size() - 1)->ID = "no_armor_jump_left";
     //8
     animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.6f, 0 , false) );
     animations.at(animations.size() - 1)->ID = "no_armor_idle_left";
     //9
-    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 5, false) );
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.5f, 5, false) );
     animations.at(animations.size() - 1)->ID = "no_armor_jump_left";
     //10
     animations.push_back( new Animation( &texture.at(1), sf::Vector2u(1,5), 0.1f, 0, false) );
@@ -78,10 +78,10 @@ Player::Player(float posX, float posY)
     animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 3, false ) );
     animations.at(animations.size() - 1)->ID = "armor_run_left";
     //17
-    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 4) );
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.5f, 4) );
     animations.at(animations.size() - 1)->ID = "armor_jump_right";
     //18
-    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.1f, 4, false) );
+    animations.push_back( new Animation( &texture.at(0), sf::Vector2u(2,17), 0.5f, 4, false) );
     animations.at(animations.size() - 1)->ID = "armor_jump_left";
     //19
     animations.push_back( new Animation( &texture.at(1), sf::Vector2u(1,5), 0.1f, 1) );
